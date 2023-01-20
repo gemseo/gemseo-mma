@@ -1,0 +1,91 @@
+{
+    "name": "MMA_options",
+    "required":["max_iter"],
+    "properties": {
+        "max_iter": {
+            "type": "integer",
+            "minimum": 0
+        },
+        "tol": {
+            "type": "number",
+            "minimum": 0.0
+        },
+        "conv_tol": {
+            "type": "number",
+            "minimum": 0.0
+        },
+        "max_optimization_step": {
+            "type": "number",
+            "minimum": 0.0
+        },
+        "max_asymptote_distance": {
+            "type": "number",
+            "minimum": 0.0
+        },
+        "min_asymptote_distance": {
+            "type": "number",
+            "minimum": 0.0
+        },
+        "normalize_design_space": {
+            "type": "boolean"
+        },
+        "xtol_rel": {
+            "type": "number",
+            "minimum": 0.0
+        },
+        "xtol_abs": {
+            "type": "number",
+            "minimum": 0.0
+        },
+        "ftol_rel": {
+            "type": "number",
+            "minimum": 0.0
+        },
+        "ftol_abs": {
+            "type": "number",
+            "minimum": 0.0
+        },
+        "max_time":{
+            "type": "number",
+             "minimum": 0.0
+        },
+        "stopval":{
+            "type": ["null", "number"]
+        },
+        "ctol_abs":{
+            "type": "number",
+            "minimum": 0.0
+        },
+        "eq_tolerance": {
+            "type": "number",
+            "minimum": 0.0
+        },
+        "ineq_tolerance": {
+            "type": "number",
+            "minimum": 0.0
+        },
+        "kkt_tol_abs": {
+            "type": "number",
+            "minimum": 0.0
+        },
+        "kkt_tol_rel": {
+            "type": "number",
+            "minimum": 0.0
+        },
+        "asyinit": {
+            "type": "number",
+            "minimum": 0.0
+        },
+        "asyincr": {
+            "type": "number",
+            "minimum": 0.0
+        },
+        "asydecr": {
+            "type": "number",
+            "minimum": 0.0
+        }
+    },
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "additionalProperties": false,
+    "type": "object"
+}
