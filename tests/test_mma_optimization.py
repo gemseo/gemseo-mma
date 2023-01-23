@@ -17,11 +17,12 @@ from __future__ import annotations
 import pytest
 from gemseo.algos.design_space import DesignSpace
 from gemseo.algos.opt_result import OptimizationResult
+from gemseo.api import create_discipline
 from gemseo.api import create_scenario
-from gemseo.disciplines.analytic import AnalyticDiscipline
 from gemseo_mma.opt.core.mma_optimizer import MMAOptimizer
 from gemseo_mma.opt.lib_mma import MMASvanberg
 from numpy import array
+from numpy import ones
 
 
 @pytest.fixture(params=[0.0, 0.25, 0.1, 1.0])
@@ -48,21 +49,75 @@ def maximization(request):
     return request.param
 
 
+def obj_func(x=0.0, y=0.0):
+    """The objective function."""
+    f = (x - 1.0) ** 2 + (y - 1.0) ** 2
+    return f
+
+
+def d_obj_func(x=0.0, y=0.0):
+    """The objective function jacobian."""
+    jac = array([2.0 * (x[0] - 1.0), 2 * (y[0] - 1.0)])
+    return jac
+
+
+def obj_func_max(x=0.0, y=0.0):
+    """The objective function for maximization."""
+    f = -((x - 1.0) ** 2) - (y - 1.0) ** 2
+    return f
+
+
+def d_obj_func_max(x=0.0, y=0.0):
+    """The objective function for maximization jacobian."""
+    jac = array([-2.0 * (x[0] - 1.0), -2 * (y[0] - 1.0)])
+    return jac
+
+
+def cstr_func(x=0.0, y=0.0):
+    """The inequality constraint function."""
+    g = x + y - 1.0
+    return g
+
+
+def d_cstr_func(x=0.0, y=0.0):
+    """The inequality constraint function jacobian."""
+    jac = ones((1, 2))
+    return jac
+
+
+def cstr_func2(x=0.0, y=0.0):
+    """The equality constraint function."""
+    h = -(x**2) - y**2
+    return h
+
+
+def d_cstr_func2(x=0.0, y=0.0):
+    """The equality constraint function jacobian."""
+    jac = array([-2 * x[0], -2 * y[0]])
+    return jac
+
+
 @pytest.fixture
 def analytical_test_2d_ineq(x0, y0, inactive_constraint, maximization):
     """Test for lagrange multiplier."""
-    s = ""
     if maximization:
-        s = "-"
-    disc = AnalyticDiscipline(
-        name="2D_test",
-        expressions={"f": f"{s}(x-1)**2+{s}(y-1)**2", "g": "x+y-1", "h": "-x**2-y**2"},
+        disc1 = create_discipline(
+            "AutoPyDiscipline", py_func=obj_func_max, py_jac=d_obj_func_max
+        )
+    else:
+        disc1 = create_discipline(
+            "AutoPyDiscipline", py_func=obj_func, py_jac=d_obj_func
+        )
+
+    disc2 = create_discipline("AutoPyDiscipline", py_func=cstr_func, py_jac=d_cstr_func)
+    disc3 = create_discipline(
+        "AutoPyDiscipline", py_func=cstr_func2, py_jac=d_cstr_func2
     )
     ds = DesignSpace()
     ds.add_variable("x", l_b=0.0, u_b=1.0, value=x0)
     ds.add_variable("y", l_b=0.0, u_b=1.0, value=y0)
     scenario = create_scenario(
-        disciplines=[disc],
+        disciplines=[disc1, disc2, disc3],
         formulation="DisciplinaryOpt",
         objective_name="f",
         design_space=ds,
