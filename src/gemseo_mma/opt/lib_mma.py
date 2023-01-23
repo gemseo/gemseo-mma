@@ -17,7 +17,6 @@ from __future__ import annotations
 
 from typing import Any
 
-from gemseo.algos.opt.lib_nlopt import NLoptOptionsType
 from gemseo.algos.opt.opt_lib import OptimizationAlgorithmDescription
 from gemseo.algos.opt.opt_lib import OptimizationLibrary
 from gemseo.algos.opt_result import OptimizationResult
@@ -67,7 +66,6 @@ class MMASvanberg(OptimizationLibrary):
         asyincr: float = 1.2,
         asydecr: float = 0.7,
         normalize_design_space: bool = False,
-        **kwargs,
     ) -> dict[str, Any]:
         r"""Sets the options.
 
@@ -75,7 +73,7 @@ class MMASvanberg(OptimizationLibrary):
             ftol_abs: The absolute tolerance on the objective function.
             xtol_abs: The absolute tolerance on the design parameters.
             max_time: The maximum runtime in seconds. The value 0 means no runtime
-            limit.
+                limit.
             max_iter: The maximum number of iterations.
             ftol_rel: The relative tolerance on the objective function.
             xtol_rel: The relative tolerance on the design parameters.
@@ -85,7 +83,7 @@ class MMASvanberg(OptimizationLibrary):
                 found, or stop maximizing when a value :math:`\geq` stopval
                 is found. If None, this termination condition will not be active.
             normalize_design_space: If True, normalize the design variables between 0
-            and 1.
+                and 1.
             eq_tolerance: The tolerance on the equality constraints.
             ineq_tolerance: The tolerance on the inequality constraints.
             tol: tolerance of convergence used in MMA to be compared with kkt residual.
@@ -99,7 +97,7 @@ class MMASvanberg(OptimizationLibrary):
                 value.
             asyincr: The incremental factor for successful iterations.
             asydecr: The decremental factor for unsuccessful iterations.
-            **kwargs:
+
         Returns:
             The converted options.
 
@@ -111,11 +109,12 @@ class MMASvanberg(OptimizationLibrary):
             ftol_abs = conv_tol
             xtol_rel = conv_tol
             xtol_abs = conv_tol
-
         else:
             conv_tol = min(ftol_rel, ftol_abs, xtol_rel, xtol_abs)
+
         if ctol_abs is None:
             ctol_abs = conv_tol
+
         return self._process_options(
             max_iter=max_iter,
             tol=tol,
@@ -136,10 +135,9 @@ class MMASvanberg(OptimizationLibrary):
             eq_tolerance=eq_tolerance,
             ineq_tolerance=ineq_tolerance,
             ctol_abs=ctol_abs,
-            **kwargs,
         )
 
-    def _run(self, **options: NLoptOptionsType) -> OptimizationResult:
+    def _run(self, **options: float | int | str) -> OptimizationResult:
         """Runs the algorithm, to be overloaded by subclasses.
 
         Args:
@@ -151,13 +149,12 @@ class MMASvanberg(OptimizationLibrary):
         """
         optimizer = MMAOptimizer(self.problem)
         message, status = optimizer.optimize(**options)
-
         return self.get_optimum_from_database(message, status)
 
     def get_optimum_from_database(
         self, message: str | None = None, status: int | None = None
     ) -> OptimizationResult:
-        """Get optimum from database using last point of database!
+        """Get optimum from database using last point of database.
 
         Retrieves the optimum from the database and builds an optimization result object
         from it.

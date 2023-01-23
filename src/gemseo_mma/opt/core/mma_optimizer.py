@@ -18,7 +18,6 @@ from __future__ import annotations
 import logging
 
 import numpy as np
-from gemseo.algos.opt.lib_nlopt import NLoptOptionsType
 from gemseo.algos.opt_problem import OptimizationProblem
 from numpy import atleast_2d
 from numpy import ndarray
@@ -109,7 +108,7 @@ class MMAOptimizer:
         self.asyincr = self.__DEFAULT_ASYINCR
         self.asydecr = self.__DEFAULT_ASYDECR
 
-    def optimize(self, **options: NLoptOptionsType) -> tuple[str, int]:
+    def optimize(self, **options: bool | int | float) -> tuple[str, int]:
         """Optimize the problem.
 
         Args:
