@@ -26,8 +26,6 @@ MMA optimizer.
 
 Original work written by Krister Svanberg in Matlab. This is the python version of the
 code written by Arjen Deetman.
-
-This file gives the functions mmasub, gcmmasub, subsolv and kktcheck.
 """
 from __future__ import annotations
 
