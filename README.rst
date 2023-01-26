@@ -14,7 +14,8 @@ A gemseo wrapper of Python version of Method of Moving Asymptothes in the implem
 Installation
 -------------
 Use the command:
->>pip install gemseo-mma
+
+    pip install gemseo-mma
 
 Usage
 -------------
@@ -40,7 +41,7 @@ Advanced options:
 * conv_tol: If provided control all other convergence tolerances.
 
 The shortest is the distance of the asymptotes the highest is the convexity of the local approximation. It's another mechanism to control the optimization step.
-To check out its implementation on simple use cases [here](examples/analytic_example.ipynb) you can find an example.
+To check out its implementation on simple use cases `here <examples/analytic_example.ipynb>`_ you can find an example.
 
 Support
 -------------
@@ -50,7 +51,7 @@ Authors and acknowledgment
 -------------
 * Simone Coniglio
 * Antoine Dechaume
-* Original implementation of Arjen Deetman [here](https://github.com/arjendeetman/GCMMA-MMA-Python).
+* Original implementation of Arjen Deetman `here <https://github.com/arjendeetman/GCMMA-MMA-Python>`_.
 
 License
 -------------
@@ -58,8 +59,9 @@ GPL-3.0 License
 
 References
 -------------
-[Svanberg, K. (1987). The Method of Moving Asymptotes – A new method for structural optimization. International Journal
-for Numerical Methods in Engineering 24, 359-373. doi:10.1002/nme.1620240207](https://onlinelibrary.wiley.com/doi/abs/10.1002/nme.1620240207)
+
+`Svanberg, K. (1987). The Method of Moving Asymptotes – A new method for structural optimization. International Journal
+for Numerical Methods in Engineering 24, 359-373. doi:10.1002/nme.1620240207 <https://onlinelibrary.wiley.com/doi/abs/10.1002/nme.1620240207>`_
 
 Svanberg, K. (n.d.). MMA and GCMMA – two methods for nonlinear optimization. Retrieved August 3, 2017 from
 https://people.kth.se/~krille/mmagcmma.pdf
