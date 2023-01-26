@@ -202,13 +202,6 @@ class MMAOptimizer:
         change_x = 10
         change_relative_f = 10
         change_relative_x = 10
-        i_iteration = (
-            "Iteration {:4n}| Objective {:.4f}| Maximum constraint"
-            " violation {:.4f}| KKT Norm {:.4f}\n".format(
-                outeriter, f0val, np.max(fval), kktnorm
-            )
-        )
-        LOGGER.info(i_iteration)
         outit = 0
         while (
             (kktnorm > kkttol)
@@ -301,31 +294,12 @@ class MMAOptimizer:
                 d,
             )
 
-            # Log
-            i_iteration = (
-                "Iteration {:4n}| Objective {:.4f}|"
-                " Maximum constraint "
-                "violation {:.4f}| KKT Norm {:.4f}\n".format(
-                    outeriter, f0val, np.max(fval), kktnorm
-                )
-            )
-
-            LOGGER.info(i_iteration)
-            i_iteration = (
-                "Change f {:.4f}| Change x {:.4f}| "
-                "Change rel x {:.4f}| "
-                "Change rel f {:.4f}|\n".format(
-                    change_f, change_x, change_relative_x, change_relative_f
-                )
-            )
-            LOGGER.info(i_iteration)
-
         if self.normalize_design_space:
             xopt = self.problem.design_space.unnormalize_vect(xval.flatten())
         else:
             xopt = xval.flatten()
 
-        LOGGER.info("END OF GCMMA ALGORITHM\n")
+        LOGGER.info("END OF MMA ALGORITHM")
         if kktnorm <= kkttol:
             self.message = "KKT norm criteria met"
         else:
