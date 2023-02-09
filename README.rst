@@ -6,19 +6,45 @@
     http://creativecommons.org/licenses/by-sa/4.0/ or send a letter to Creative
     Commons, PO Box 1866, Mountain View, CA 94042, USA.
 
-gemseo-mma
+A GEMSEO wrapper of the Method of Moving Asymptotes implementation of Arjen Deetman.
+
+Documentation
 -------------
 
-A gemseo wrapper of Python version of Method of Moving Asymptothes in the implementation of Arjen Deetman
+See https://gemseo.readthedocs.io/en/stable/plugins.html.
+
+Bugs/Questions
+--------------
+
+Please use the gitlab issue tracker at
+https://gitlab.com/gemseo/dev/gemseo-mma/-/issues
+to submit bugs or questions.
+
+License
+-------
+
+The GEMSEO-MMA source code is distributed under the GNU LGPL v3.0 license.
+A copy of it can be found in the LICENSE.txt file.
+The GNU LGPL v3.0 license is an exception to the GNU GPL v3.0 license.
+A copy of the GNU GPL v3.0 license can be found in the LICENSES folder.
+
+The GEMSEO-MMA examples are distributed under the BSD 0-Clause, a permissive
+license that allows to copy paste the code of examples without preserving the
+copyright mentions.
+
+The GEMSEO-MMA documentation is distributed under the CC BY-SA 4.0 license.
+
+The GEMSEO-MMA product depends on other software which have various licenses.
+The list of dependencies with their licenses is given in the CREDITS.rst file.
 
 Installation
--------------
-Use the command:
+------------
 
-    pip install gemseo-mma
+pip install gemseo-mma
 
 Usage
--------------
+-----
+
 Like any other gemseo wrapped solver, MMA solver can be called setting the algo option to ``"MMA"``.
 This algorithm can be used for single objective continuous optimization problem with non-linear inequality constraints.
 
@@ -40,28 +66,23 @@ Advanced options:
 
 * conv_tol: If provided control all other convergence tolerances.
 
-The shortest is the distance of the asymptotes the highest is the convexity of the local approximation. It's another mechanism to control the optimization step.
-To check out its implementation on simple use cases `here <examples/analytic_example.ipynb>`_ you can find an example.
+The shortest is the distance of the asymptotes, the highest is the convexity of the local approximation.
+It's another mechanism to control the optimization step.
+You can find an example in examples/analytic_example.ipynb.
 
-Support
--------------
-Directly opening an incident or contacting the author Simone Coniglio by e-mail: simone.coniglio@irt-saintexupery.com .
+Contributors and acknowledgment
+-------------------------------
 
-Authors and acknowledgment
--------------
 * Simone Coniglio
 * Antoine Dechaume
-* Original implementation of Arjen Deetman `here <https://github.com/arjendeetman/GCMMA-MMA-Python>`_.
-
-License
--------------
-GPL-3.0 License
+* Original implementation of Arjen Deetman, see https://github.com/arjendeetman/GCMMA-MMA-Python.
 
 References
--------------
+----------
 
-`Svanberg, K. (1987). The Method of Moving Asymptotes – A new method for structural optimization. International Journal
-for Numerical Methods in Engineering 24, 359-373. doi:10.1002/nme.1620240207 <https://onlinelibrary.wiley.com/doi/abs/10.1002/nme.1620240207>`_
+Svanberg, K. (1987). The Method of Moving Asymptotes – A new method for structural optimization. International Journal
+for Numerical Methods in Engineering 24, 359-373. doi:10.1002/nme.1620240207,
+see https://onlinelibrary.wiley.com/doi/abs/10.1002/nme.1620240207.
 
 Svanberg, K. (n.d.). MMA and GCMMA – two methods for nonlinear optimization. Retrieved August 3, 2017 from
 https://people.kth.se/~krille/mmagcmma.pdf

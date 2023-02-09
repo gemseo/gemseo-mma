@@ -1,5 +1,3 @@
-exclude: ^src/gemseo/third_party
-
 repos:
 
 - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -7,7 +5,7 @@ repos:
   hooks:
     - id: trailing-whitespace
     - id: end-of-file-fixer
-      exclude: (LICENSES/headers|tests/core/data/factory/.*\.json)
+      exclude: LICENSES/headers
     - id: check-yaml
       # !reference is specific to gitlab
       exclude: .gitlab-ci.yml
@@ -18,7 +16,7 @@ repos:
     - id: check-symlinks
 
 - repo: https://github.com/pre-commit/pygrep-hooks
-  rev: v1.9.0
+  rev: v1.10.0
   hooks:
     - id: rst-backticks
     - id: rst-directive-colons
@@ -119,7 +117,6 @@ repos:
     - id: insert-license
       name: insert CC BY-SA license
       files: (\.rst|\.rst\.txt)$
-      exclude: ^changelog/fragments
       args:
         - --license-filepath
         - LICENSES/headers/CC-BY-SA-4.0.txt

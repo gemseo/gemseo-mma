@@ -67,6 +67,7 @@ training or example purposes.
 
 `MMA <https://github.com/arjendeetman/GCMMA-MMA-Python>`_
     GPL-3.0 License
+
 Resources
 ---------
 
