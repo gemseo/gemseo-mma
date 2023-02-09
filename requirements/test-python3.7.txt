@@ -12,7 +12,7 @@ charset-normalizer==3.0.1
     # via requests
 covdefaults==2.2.2
     # via gemseo-mma (setup.py)
-coverage[toml]==7.0.5
+coverage[toml]==7.1.0
     # via
     #   covdefaults
     #   pytest-cov
@@ -28,7 +28,7 @@ fastjsonschema==2.16.2
     # via gemseo
 fonttools==4.38.0
     # via matplotlib
-gemseo @ git+https://gitlab.com/gemseo/dev/gemseo.git@develop
+gemseo==4.3.0
     # via gemseo-mma (setup.py)
 genson==1.2.2
     # via gemseo
@@ -84,7 +84,7 @@ pytest==7.2.1
     #   pytest-xdist
 pytest-cov==4.0.0
     # via gemseo-mma (setup.py)
-pytest-xdist==3.1.0
+pytest-xdist==3.2.0
     # via gemseo-mma (setup.py)
 python-dateutil==2.8.2
     # via
@@ -121,5 +121,5 @@ xdsmjs==1.0.1
     # via gemseo
 xxhash==3.1.0
     # via gemseo
-zipp==3.11.0
+zipp==3.12.1
     # via importlib-metadata
