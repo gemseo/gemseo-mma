@@ -14,9 +14,9 @@
 # Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 """GCMMA-MMA-Python. This file is part of GCMMA-MMA-Python.
 
-GCMMA-MMA-Python is licensed
-under the terms of GNU General Public License as published by the Free Software
-Foundation. For more information and the LICENSE file, see `https://github.com/
+GCMMA-MMA-Python is licensed under the terms of GNU General Public License as published
+by the Free Software Foundation. For more information and the LICENSE file, see `
+https://github.com/
 arjendeetman/GCMMA-MMA-Python <https://github.com/arjendeetman/GCMMA-MMA-Python>`_
 . The original work is written by
 Krister Svanberg in MATLAB. This is the python version of the code written Arjen
