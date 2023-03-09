@@ -53,7 +53,6 @@ class MMASvanberg(OptimizationLibrary):
         max_time: float = 0.0,
         ftol_rel: float = 1e-8,
         xtol_rel: float = 1e-8,
-        ctol_abs: float | None = None,
         stopval: float | None = None,
         eq_tolerance: float = 1e-2,
         ineq_tolerance: float = 1e-4,
@@ -62,9 +61,9 @@ class MMASvanberg(OptimizationLibrary):
         max_optimization_step: float = 0.1,
         max_asymptote_distance: float = 10.0,
         min_asymptote_distance: float = 0.01,
-        asyinit: float = 0.5,
-        asyincr: float = 1.2,
-        asydecr: float = 0.7,
+        initial_asymptotes_distance: float = 0.5,
+        asymptotes_distance_amplification_coefficient: float = 1.2,
+        asymptotes_distance_reduction_coefficient: float = 0.7,
         normalize_design_space: bool = False,
     ) -> dict[str, Any]:
         r"""Sets the options.
@@ -77,7 +76,6 @@ class MMASvanberg(OptimizationLibrary):
             max_iter: The maximum number of iterations.
             ftol_rel: The relative tolerance on the objective function.
             xtol_rel: The relative tolerance on the design parameters.
-            ctol_abs: The absolute tolerance on the constraints.
             stopval: The objective value at which the optimization will stop.
                 Stop minimizing when an objective value :math:`\leq` stopval is
                 found, or stop maximizing when a value :math:`\geq` stopval
@@ -93,10 +91,12 @@ class MMASvanberg(OptimizationLibrary):
                 current design variable value.
             min_asymptote_distance: The minimum distance of the asymptotes from the
                 current design variable value.
-            asyinit: The initial asymptotes distance from the current design variable
-                value.
-            asyincr: The incremental factor for successful iterations.
-            asydecr: The decremental factor for unsuccessful iterations.
+            initial_asymptotes_distance: The initial asymptotes distance from the
+                current design variable value.
+            asymptotes_distance_amplification_coefficient: The amplification factor
+                for successful iterations.
+            asymptotes_distance_reduction_coefficient: The decremental factor for
+                unsuccessful iterations.
 
         Returns:
             The converted options.
@@ -112,9 +112,6 @@ class MMASvanberg(OptimizationLibrary):
         else:
             conv_tol = min(ftol_rel, ftol_abs, xtol_rel, xtol_abs)
 
-        if ctol_abs is None:
-            ctol_abs = conv_tol
-
         return self._process_options(
             max_iter=max_iter,
             tol=tol,
@@ -123,9 +120,9 @@ class MMASvanberg(OptimizationLibrary):
             max_optimization_step=max_optimization_step,
             max_asymptote_distance=max_asymptote_distance,
             min_asymptote_distance=min_asymptote_distance,
-            asyinit=asyinit,
-            asyincr=asyincr,
-            asydecr=asydecr,
+            initial_asymptotes_distance=initial_asymptotes_distance,
+            asymptotes_distance_amplification_coefficient=asymptotes_distance_amplification_coefficient,
+            asymptotes_distance_reduction_coefficient=asymptotes_distance_reduction_coefficient,
             ftol_rel=ftol_rel,
             ftol_abs=ftol_abs,
             xtol_rel=xtol_rel,
@@ -134,7 +131,6 @@ class MMASvanberg(OptimizationLibrary):
             stopval=stopval,
             eq_tolerance=eq_tolerance,
             ineq_tolerance=ineq_tolerance,
-            ctol_abs=ctol_abs,
         )
 
     def _run(self, **options: float | int | str) -> OptimizationResult:

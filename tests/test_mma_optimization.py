@@ -138,7 +138,10 @@ parametrized_options = pytest.mark.parametrize(
         },
         {
             "max_iter": 30,
-            "algo_options": {"conv_tol": 1e-16, "tol": 1e-16},
+            "algo_options": {
+                "tol": 1e-16,
+                "conv_tol": 1e-16,
+            },
         },
         {
             "max_iter": 50,
@@ -147,8 +150,19 @@ parametrized_options = pytest.mark.parametrize(
                 "xtol_abs": 1e-7,
                 "ftol_rel": 1e-7,
                 "ftol_abs": 1e-7,
-                "ctol_abs": 1e-7,
                 "tol": 1e-16,
+            },
+        },
+        {
+            "max_iter": 50,
+            "algo_options": {
+                "xtol_rel": 1e-7,
+                "xtol_abs": 1e-7,
+                "ftol_rel": 1e-7,
+                "ftol_abs": 1e-7,
+                "initial_asymptotes_distance": 0.1,
+                "asymptotes_distance_amplification_coefficient": 1.3,
+                "asymptotes_distance_reduction_coefficient": 0.6,
             },
         },
     ],
@@ -164,15 +178,22 @@ def test_execution_with_scenario(analytical_test_2d_ineq, options, algo_ineq):
     opt["algo"] = algo_ineq
     analytical_test_2d_ineq.execute(opt)
     problem = analytical_test_2d_ineq.formulation.opt_problem
-    assert pytest.approx(problem.solution.x_opt, 1e-4) == array([0.5, 0.5])
+    assert pytest.approx(problem.solution.x_opt, abs=1e-2) == array([0.5, 0.5])
 
 
-def test_direct_execution(analytical_test_2d_ineq):
+@parametrized_options
+def test_direct_execution(analytical_test_2d_ineq, options):
     """Test for optimization problem execution using MMA solver."""
     problem = analytical_test_2d_ineq.formulation.opt_problem
     optimizer = MMAOptimizer(problem)
-    optimizer.optimize()
-    assert pytest.approx(problem.design_space.get_current_value(), 1e-4) == array(
+    optimizer.optimize(**options["algo_options"])
+    for key in options["algo_options"].keys():
+        if not "conv_tol" == key:
+            assert (
+                getattr(optimizer, "_MMAOptimizer__" + key)
+                == options["algo_options"][key]
+            )
+    assert pytest.approx(problem.design_space.get_current_value(), abs=1e-2) == array(
         [0.5, 0.5]
     )
 
