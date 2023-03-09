@@ -25,6 +25,18 @@ The format is based on
 and this project adheres to
 `Semantic Versioning <https://semver.org/spec/v2.0.0.html>`_.
 
+Develop
+*******
+
+Fixed
+-----
+-A bug on the option settings was solved.
+Changed
+-------
+- The ctol_abs option was removed, this was anyway not used.
+- The attributes and option names were changed to be more explicit.
+- The solver attributes are made private.
+
 Version 1.0.0 (February 2023)
 *****************************
 

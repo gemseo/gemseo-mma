@@ -52,10 +52,6 @@
         "stopval":{
             "type": ["null", "number"]
         },
-        "ctol_abs":{
-            "type": "number",
-            "minimum": 0.0
-        },
         "eq_tolerance": {
             "type": "number",
             "minimum": 0.0
@@ -72,15 +68,15 @@
             "type": "number",
             "minimum": 0.0
         },
-        "asyinit": {
+        "initial_asymptotes_distance": {
             "type": "number",
             "minimum": 0.0
         },
-        "asyincr": {
+        "asymptotes_distance_amplification_coefficient": {
             "type": "number",
             "minimum": 0.0
         },
-        "asydecr": {
+        "asymptotes_distance_reduction_coefficient": {
             "type": "number",
             "minimum": 0.0
         }
