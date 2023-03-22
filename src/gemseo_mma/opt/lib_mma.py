@@ -17,8 +17,8 @@ from __future__ import annotations
 
 from typing import Any
 
-from gemseo.algos.opt.opt_lib import OptimizationAlgorithmDescription
-from gemseo.algos.opt.opt_lib import OptimizationLibrary
+from gemseo.algos.opt.optimization_library import OptimizationAlgorithmDescription
+from gemseo.algos.opt.optimization_library import OptimizationLibrary
 from gemseo.algos.opt_result import OptimizationResult
 
 from gemseo_mma.opt.core.mma_optimizer import MMAOptimizer
