@@ -50,12 +50,9 @@ class MMASvanberg(OptimizationLibrary):
         max_iter: int = 1000,
         ftol_abs: float = 1e-14,
         xtol_abs: float = 1e-14,
-        max_time: float = 0.0,
         ftol_rel: float = 1e-8,
         xtol_rel: float = 1e-8,
-        stopval: float | None = None,
         eq_tolerance: float = 1e-2,
-        ineq_tolerance: float = 1e-4,
         tol: float = 1e-2,
         conv_tol: float = None,
         max_optimization_step: float = 0.1,
@@ -64,26 +61,19 @@ class MMASvanberg(OptimizationLibrary):
         initial_asymptotes_distance: float = 0.5,
         asymptotes_distance_amplification_coefficient: float = 1.2,
         asymptotes_distance_reduction_coefficient: float = 0.7,
-        normalize_design_space: bool = False,
+        **kwargs: Any,
     ) -> dict[str, Any]:
         r"""Sets the options.
 
         Args:
             ftol_abs: The absolute tolerance on the objective function.
             xtol_abs: The absolute tolerance on the design parameters.
-            max_time: The maximum runtime in seconds. The value 0 means no runtime
-                limit.
             max_iter: The maximum number of iterations.
             ftol_rel: The relative tolerance on the objective function.
             xtol_rel: The relative tolerance on the design parameters.
-            stopval: The objective value at which the optimization will stop.
-                Stop minimizing when an objective value :math:`\leq` stopval is
-                found, or stop maximizing when a value :math:`\geq` stopval
-                is found. If None, this termination condition will not be active.
             normalize_design_space: If True, normalize the design variables between 0
                 and 1.
             eq_tolerance: The tolerance on the equality constraints.
-            ineq_tolerance: The tolerance on the inequality constraints.
             tol: tolerance of convergence used in MMA to be compared with kkt residual.
             conv_tol: If provided control all other convergence tolerances.
             max_optimization_step: The maximum optimization step.
@@ -97,6 +87,7 @@ class MMASvanberg(OptimizationLibrary):
                 for successful iterations.
             asymptotes_distance_reduction_coefficient: The decremental factor for
                 unsuccessful iterations.
+            **kwargs: The other options.
 
         Returns:
             The converted options.
@@ -115,7 +106,6 @@ class MMASvanberg(OptimizationLibrary):
         return self._process_options(
             max_iter=max_iter,
             tol=tol,
-            normalize_design_space=normalize_design_space,
             conv_tol=conv_tol,
             max_optimization_step=max_optimization_step,
             max_asymptote_distance=max_asymptote_distance,
@@ -127,10 +117,8 @@ class MMASvanberg(OptimizationLibrary):
             ftol_abs=ftol_abs,
             xtol_rel=xtol_rel,
             xtol_abs=xtol_abs,
-            max_time=max_time,
-            stopval=stopval,
             eq_tolerance=eq_tolerance,
-            ineq_tolerance=ineq_tolerance,
+            **kwargs,
         )
 
     def _run(self, **options: float | int | str) -> OptimizationResult:
