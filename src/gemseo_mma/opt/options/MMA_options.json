@@ -5,6 +5,9 @@
         "max_iter": {
             "type": "integer",
             "minimum": 0
+        },"stop_crit_n_x": {
+            "type": "integer",
+            "minimum": 2
         },
         "tol": {
             "type": "number",
