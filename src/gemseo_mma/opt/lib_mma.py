@@ -54,7 +54,7 @@ class MMASvanberg(OptimizationLibrary):
         xtol_rel: float = 1e-8,
         eq_tolerance: float = 1e-2,
         tol: float = 1e-2,
-        conv_tol: float = None,
+        conv_tol: float | None = None,
         max_optimization_step: float = 0.1,
         max_asymptote_distance: float = 10.0,
         min_asymptote_distance: float = 0.01,
@@ -161,7 +161,7 @@ class MMASvanberg(OptimizationLibrary):
         x_0 = problem.database.get_x_by_iter(0)
         # get last point as optimum
         x_opt = problem.database.get_x_by_iter(-1)
-        is_feas, _violation = problem.get_violation_criteria(x_opt)
+        is_feas, _ = problem.get_violation_criteria(x_opt)
         f_opt = problem.database.get_f_of_x(fname=problem.objective.name, x_vect=x_opt)
         c_opt = {
             cont.name: problem.database.get_f_of_x(fname=cont.name, x_vect=x_opt)
@@ -183,6 +183,6 @@ class MMASvanberg(OptimizationLibrary):
             status=status,
             n_obj_call=problem.objective.n_calls,
             is_feasible=is_feas,
-            constraints_values=c_opt,
+            constraint_values=c_opt,
             constraints_grad=c_opt_grad,
         )

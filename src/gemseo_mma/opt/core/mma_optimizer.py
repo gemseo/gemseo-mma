@@ -35,8 +35,8 @@ class MMAOptimizer:
 
     This class run an optimization algorithm to solve Non-linear Optimization problems
     with constraints. The objective function and the constraints and their gradients are
-    needed for the optimization algorithm. The original implementation the next iteration
-    candidate is computed using mmasub function adapted from `
+    needed for the optimization algorithm. The original implementation the next
+    iteration candidate is computed using mmasub function adapted from `
     https://github.com/arjendeetman/GCMMA-MMA-Python
     <https://github.com/arjendeetman/GCMMA-MMA-Python>`_ . The external and internal move
     limit can be tuned to control minimum and maximum local approximation convexity. The

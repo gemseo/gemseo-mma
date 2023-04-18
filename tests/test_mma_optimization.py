@@ -15,10 +15,10 @@
 from __future__ import annotations
 
 import pytest
+from gemseo import create_discipline
+from gemseo import create_scenario
 from gemseo.algos.design_space import DesignSpace
 from gemseo.algos.opt_result import OptimizationResult
-from gemseo.api import create_discipline
-from gemseo.api import create_scenario
 from gemseo_mma.opt.core.mma_optimizer import MMAOptimizer
 from gemseo_mma.opt.lib_mma import MMASvanberg
 from numpy import array
