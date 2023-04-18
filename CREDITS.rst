@@ -24,6 +24,9 @@ Internal Dependencies
 
 GEMSEO-mma source code includes software with compatible licenses that are listed below.
 
+`MMA <https://github.com/arjendeetman/GCMMA-MMA-Python>`_
+    GPL-3.0 License
+
 External application
 --------------------
 
@@ -64,9 +67,6 @@ training or example purposes.
 
 `setuptools_scm <https://github.com/pypa/setuptools_scm/>`_
     MIT
-
-`MMA <https://github.com/arjendeetman/GCMMA-MMA-Python>`_
-    GPL-3.0 License
 
 Resources
 ---------
