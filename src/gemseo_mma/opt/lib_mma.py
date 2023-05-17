@@ -158,17 +158,23 @@ class MMASvanberg(OptimizationLibrary):
                 status=status,
                 n_obj_call=0,
             )
-        x_0 = problem.database.get_x_by_iter(0)
+        x_0 = problem.database.get_x_vect(1)
         # get last point as optimum
-        x_opt = problem.database.get_x_by_iter(-1)
+        x_opt = problem.database.get_x_vect(-1)
         is_feas, _ = problem.get_violation_criteria(x_opt)
-        f_opt = problem.database.get_f_of_x(fname=problem.objective.name, x_vect=x_opt)
+        f_opt = problem.database.get_function_value(
+            function_name=problem.objective.name, x_vect_or_iteration=x_opt
+        )
         c_opt = {
-            cont.name: problem.database.get_f_of_x(fname=cont.name, x_vect=x_opt)
+            cont.name: problem.database.get_function_value(
+                function_name=cont.name, x_vect_or_iteration=x_opt
+            )
             for cont in problem.constraints
         }
         c_opt_grad = {
-            cont.name: problem.database.get_func_grad_history(funcname=cont.name)[-1]
+            cont.name: problem.database.get_gradient_history(function_name=cont.name)[
+                -1
+            ]
             for cont in problem.constraints
         }
         # f_opt, x_opt, is_feas, c_opt, c_opt_grad = problem.get_optimum()
