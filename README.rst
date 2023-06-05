@@ -58,11 +58,11 @@ Advanced options:
 
 * max_asymptote_distance: The maximum distance of the asymptotes from the current design variable value.
 
-* asyinit: The initial asymptote distance from the current design variable value.
+* initial_asymptotes_distance: The initial asymptote distance from the current design variable value.
 
-* asyincr The incremental factor of asymptote distance from the current design variable value for successful iterations.
+* asymptotes_distance_amplification_coefficient The incremental factor of asymptote distance from the current design variable value for successful iterations.
 
-* asydecr: The decremental factor of asymptote distance from the current design variable value for successful iterations.
+* asymptotes_distance_reduction_coefficient: The decremental factor of asymptote distance from the current design variable value for successful iterations.
 
 * conv_tol: If provided control all other convergence tolerances.
 
