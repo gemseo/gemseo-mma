@@ -26,6 +26,13 @@ The format is based on
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# Develop
+
+## Fixed
+
+- A bug on the option handling was solved for design space normalization and inequality
+constraint tolerance.
+
 # Version 2.0.0 (June 2023)
 
 Update to GEMSEO 5.

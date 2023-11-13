@@ -88,6 +88,8 @@ class MMAOptimizer:
     """The amplification factor for successful iterations."""
     __asymptotes_distance_reduction_coefficient: float
     """The decremental factor for unsuccessful iterations."""
+    __ineq_tolerance: float
+    """The inequality constraints tolerance."""
 
     def __init__(self, problem: OptimizationProblem) -> None:
         """Constructor."""
@@ -144,6 +146,7 @@ class MMAOptimizer:
         self.__asymptotes_distance_reduction_coefficient = options.get(
             "asymptotes_distance_reduction_coefficient", self.__DEFAULT_ASYDECR
         )
+        self.__ineq_tolerance = options.get("ineq_tolerance", self.__DEFAULT_TOLERANCE)
 
         # initialize database
         if not self.__normalize_design_space:
@@ -219,10 +222,7 @@ class MMAOptimizer:
             and (change_relative_x > self.__xtol_rel)
             and (change_relative_f > self.__ftol_rel)
             and (change_f > self.__ftol_abs)
-            or (
-                any(fval > self.__problem.ineq_tolerance)
-                and change_fc > self.__ftol_abs
-            )
+            or (any(fval > self.__ineq_tolerance) and change_fc > self.__ftol_abs)
         ) and (outit < maxoutit):
             outit += 1
             outeriter += 1

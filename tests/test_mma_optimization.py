@@ -137,6 +137,14 @@ parametrized_options = pytest.mark.parametrize(
             "algo_options": {"tol": 1e-4, "normalize_design_space": True},
         },
         {
+            "max_iter": 50,
+            "algo_options": {
+                "tol": 1e-4,
+                "normalize_design_space": False,
+                "ineq_tolerance": 1e-2,
+            },
+        },
+        {
             "max_iter": 30,
             "algo_options": {
                 "tol": 1e-16,
