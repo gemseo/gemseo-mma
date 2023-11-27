@@ -16,14 +16,17 @@
 from __future__ import annotations
 
 import logging
+from typing import TYPE_CHECKING
 
 import numpy as np
-from gemseo.algos.opt_problem import OptimizationProblem
 from numpy import atleast_2d
 from numpy import ndarray
 
 from gemseo_mma.opt.core.mma import compute_kkt_residual_on_local_approximation
 from gemseo_mma.opt.core.mma import solve_mma_local_approximation_problem
+
+if TYPE_CHECKING:
+    from gemseo.algos.opt_problem import OptimizationProblem
 
 # Import MMA functions
 
@@ -38,7 +41,8 @@ class MMAOptimizer:
     needed for the optimization algorithm. The original implementation the next
     iteration candidate is computed using mmasub function adapted from `
     https://github.com/arjendeetman/GCMMA-MMA-Python
-    <https://github.com/arjendeetman/GCMMA-MMA-Python>`_ . The external and internal move
+    <https://github.com/arjendeetman/GCMMA-MMA-Python>`_.
+    The external and internal move
     limit can be tuned to control minimum and maximum local approximation convexity. The
     max_optimization_step parameter can be used to control the optimization step. To
     avoid solver divergence in the case of highly non-linear problems one should use
