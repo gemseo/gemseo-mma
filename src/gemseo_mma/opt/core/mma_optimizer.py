@@ -13,6 +13,7 @@
 # along with this program; if not, write to the Free Software Foundation,
 # Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 """MMA optimization solver."""
+
 from __future__ import annotations
 
 import logging
@@ -288,7 +289,7 @@ class MMAOptimizer:
             # constraints functions
             f0val, df0dx, fval, dfdx = f0valnew, df0dxnew, fvalnew, dfdxnew
             # The residual vector of the KKT conditions is calculated
-            residu, kktnorm, residumax = compute_kkt_residual_on_local_approximation(
+            _, kktnorm, _ = compute_kkt_residual_on_local_approximation(
                 m,
                 n,
                 xmma,

@@ -27,6 +27,7 @@ MMA optimizer.
 Original work written by Krister Svanberg in Matlab. This is the python version of the
 code written by Arjen Deetman.
 """
+
 from __future__ import annotations
 
 import numpy as np
