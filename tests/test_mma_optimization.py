@@ -202,9 +202,10 @@ def test_direct_execution(analytical_test_2d_ineq, options):
                 getattr(optimizer, "_MMAOptimizer__" + key)
                 == options["algo_options"][key]
             )
-    assert pytest.approx(problem.design_space.get_current_value(), abs=1e-2) == array(
-        [0.5, 0.5]
-    )
+    assert pytest.approx(problem.design_space.get_current_value(), abs=1e-2) == array([
+        0.5,
+        0.5,
+    ])
 
 
 def test_get_optimum_from_database(analytical_test_2d_ineq):
