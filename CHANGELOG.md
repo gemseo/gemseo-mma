@@ -28,10 +28,18 @@ and this project adheres to
 
 # Develop
 
+## Added
+
+- Support for Python 3.11.
+
 ## Fixed
 
 - A bug on the option handling was solved for design space normalization and inequality
 constraint tolerance.
+
+## Removed
+
+- Support for Python 3.8.
 
 # Version 2.0.0 (June 2023)
 
