@@ -1,0 +1,14 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+_commit: f9462b9
+_src_path: https://gitlab.com/gemseo/dev/copier-gemseo
+author_email: contact@gemseo.org
+author_name: Simone Coniglio
+gemseo_min_version: '5'
+package_is_a_gemseo_plugin: true
+project_is_open_source: true
+project_name: gemseo-mma
+project_name_suffix: mma
+project_slug: gemseo_mma
+short_description: A gemseo wrapper of Python version of Method of Moving Asymptothes
+    in the implementation of Arjen Deetman.
+use_gemseo_develop: true

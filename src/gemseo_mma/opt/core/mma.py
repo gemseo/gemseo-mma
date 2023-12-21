@@ -27,6 +27,7 @@ MMA optimizer.
 Original work written by Krister Svanberg in Matlab. This is the python version of the
 code written by Arjen Deetman.
 """
+
 from __future__ import annotations
 
 import numpy as np
@@ -40,7 +41,7 @@ from scipy.sparse import diags  # or use numpy: from numpy import diag as diags
 def solve_mma_local_approximation_problem(
     m: int,
     n: int,
-    iter: int,
+    n_iterations: int,
     xval: ndarray,
     xmin: ndarray,
     xmax: ndarray,
@@ -88,12 +89,13 @@ def solve_mma_local_approximation_problem(
     Args:
         m: The number of general constraints.
         n: The number of variables x_j.
-        iter: The current iteration number ( =1 the first time mmasub is called).
+        n_iterations: The current iteration number
+            (=1 the first time mmasub is called).
         xval: The column vector with the current values of the variables x_j.
         xmin: The column vector with the lower bounds for the variables x_j.
         xmax: The column vector with the upper bounds for the variables x_j.
-        xold1: The value of xval, one iteration ago (provided that iter>1).
-        xold2: The value of xval, two iterations ago (provided that iter>2).
+        xold1: The value of xval, one iteration ago (provided that n_iterations>1).
+        xold2: The value of xval, two iterations ago (provided that n_iterations>2).
         f0val: The value of the objective function f_0 at xval.
         df0dx: The column vector with the derivatives of the objective function
                 f_0 with respect to the variables x_j, calculated at xval.
@@ -102,9 +104,9 @@ def solve_mma_local_approximation_problem(
         dfdx: The (m x n)-matrix with the derivatives of the constraint functions
                 f_i with respect to the variables x_j, calculated at xval.
         low: The column vector with the lower asymptotes from the previous
-                iteration (provided that iter>1).
+                iteration (provided that n_iterations>1).
         upp: The column vector with the upper asymptotes from the previous
-                iteration (provided that iter>1).
+                iteration (provided that n_iterations>1).
         a0: The constants a_0 in the term a_0*z.
         a: The column vector with the constants a_i in the terms a_i*z.
         c: The column vector with the constants c_i in the terms c_i*y_i.
@@ -143,7 +145,7 @@ def solve_mma_local_approximation_problem(
     eeem = np.ones((m, 1))
     zeron = np.zeros((n, 1))
     # Calculation of the asymptotes low and upp
-    if iter <= 2:
+    if n_iterations <= 2:
         low = xval - asyinit * (xmax - xmin)
         upp = xval + asyinit * (xmax - xmin)
     else:
@@ -473,7 +475,7 @@ def __subsolv(
     return xmma, ymma, zmma, lamma, xsimma, etamma, mumma, zetmma, smma
 
 
-# Function for Karush–Kuhn–Tucker check
+# Function for Karush-Kuhn-Tucker check
 def compute_kkt_residual_on_local_approximation(
     m: int,
     n: int,

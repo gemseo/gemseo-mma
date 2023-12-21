@@ -19,10 +19,11 @@ from gemseo import create_discipline
 from gemseo import create_scenario
 from gemseo.algos.design_space import DesignSpace
 from gemseo.algos.opt_result import OptimizationResult
-from gemseo_mma.opt.core.mma_optimizer import MMAOptimizer
-from gemseo_mma.opt.lib_mma import MMASvanberg
 from numpy import array
 from numpy import ones
+
+from gemseo_mma.opt.core.mma_optimizer import MMAOptimizer
+from gemseo_mma.opt.lib_mma import MMASvanberg
 
 
 @pytest.fixture(params=[0.0, 0.25, 0.1, 1.0])
@@ -52,52 +53,52 @@ def maximization(request):
 def obj_func(x=0.0, y=0.0):
     """The objective function."""
     f = (x - 1.0) ** 2 + (y - 1.0) ** 2
-    return f
+    return f  # noqa: RET504
 
 
 def d_obj_func(x=0.0, y=0.0):
     """The objective function jacobian."""
     jac = array([2.0 * (x[0] - 1.0), 2 * (y[0] - 1.0)])
-    return jac
+    return jac  # noqa: RET504
 
 
 def obj_func_max(x=0.0, y=0.0):
     """The objective function for maximization."""
     f = -((x - 1.0) ** 2) - (y - 1.0) ** 2
-    return f
+    return f  # noqa: RET504
 
 
 def d_obj_func_max(x=0.0, y=0.0):
     """The objective function for maximization jacobian."""
     jac = array([-2.0 * (x[0] - 1.0), -2 * (y[0] - 1.0)])
-    return jac
+    return jac  # noqa: RET504
 
 
 def cstr_func(x=0.0, y=0.0):
     """The inequality constraint function."""
     g = x + y - 1.0
-    return g
+    return g  # noqa: RET504
 
 
 def d_cstr_func(x=0.0, y=0.0):
     """The inequality constraint function jacobian."""
     jac = ones((1, 2))
-    return jac
+    return jac  # noqa: RET504
 
 
 def cstr_func2(x=0.0, y=0.0):
     """The equality constraint function."""
     h = -(x**2) - y**2
-    return h
+    return h  # noqa: RET504
 
 
 def d_cstr_func2(x=0.0, y=0.0):
     """The equality constraint function jacobian."""
     jac = array([-2 * x[0], -2 * y[0]])
-    return jac
+    return jac  # noqa: RET504
 
 
-@pytest.fixture
+@pytest.fixture()
 def analytical_test_2d_ineq(x0, y0, inactive_constraint, maximization):
     """Test for lagrange multiplier."""
     if maximization:
@@ -135,6 +136,14 @@ parametrized_options = pytest.mark.parametrize(
         {
             "max_iter": 50,
             "algo_options": {"tol": 1e-4, "normalize_design_space": True},
+        },
+        {
+            "max_iter": 50,
+            "algo_options": {
+                "tol": 1e-4,
+                "normalize_design_space": False,
+                "ineq_tolerance": 1e-2,
+            },
         },
         {
             "max_iter": 30,
@@ -187,15 +196,16 @@ def test_direct_execution(analytical_test_2d_ineq, options):
     problem = analytical_test_2d_ineq.formulation.opt_problem
     optimizer = MMAOptimizer(problem)
     optimizer.optimize(**options["algo_options"])
-    for key in options["algo_options"].keys():
-        if not "conv_tol" == key:
+    for key in options["algo_options"]:
+        if key != "conv_tol":
             assert (
                 getattr(optimizer, "_MMAOptimizer__" + key)
                 == options["algo_options"][key]
             )
-    assert pytest.approx(problem.design_space.get_current_value(), abs=1e-2) == array(
-        [0.5, 0.5]
-    )
+    assert pytest.approx(problem.design_space.get_current_value(), abs=1e-2) == array([
+        0.5,
+        0.5,
+    ])
 
 
 def test_get_optimum_from_database(analytical_test_2d_ineq):

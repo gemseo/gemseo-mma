@@ -13,6 +13,7 @@
 # along with this program; if not, write to the Free Software Foundation,
 # Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 """MMA optimizer library."""
+
 from __future__ import annotations
 
 from typing import Any
@@ -52,7 +53,7 @@ class MMASvanberg(OptimizationLibrary):
         xtol_abs: float = 1e-14,
         ftol_rel: float = 1e-8,
         xtol_rel: float = 1e-8,
-        eq_tolerance: float = 1e-2,
+        ineq_tolerance: float = 1e-2,
         tol: float = 1e-2,
         conv_tol: float | None = None,
         max_optimization_step: float = 0.1,
@@ -61,9 +62,10 @@ class MMASvanberg(OptimizationLibrary):
         initial_asymptotes_distance: float = 0.5,
         asymptotes_distance_amplification_coefficient: float = 1.2,
         asymptotes_distance_reduction_coefficient: float = 0.7,
+        normalize_design_space: bool = True,
         **kwargs: Any,
     ) -> dict[str, Any]:
-        r"""Sets the options.
+        """
 
         Args:
             ftol_abs: The absolute tolerance on the objective function.
@@ -73,7 +75,7 @@ class MMASvanberg(OptimizationLibrary):
             xtol_rel: The relative tolerance on the design parameters.
             normalize_design_space: If True, normalize the design variables between 0
                 and 1.
-            eq_tolerance: The tolerance on the equality constraints.
+            ineq_tolerance: The tolerance on the inequality constraints.
             tol: tolerance of convergence used in MMA to be compared with kkt residual.
             conv_tol: If provided control all other convergence tolerances.
             max_optimization_step: The maximum optimization step.
@@ -94,7 +96,7 @@ class MMASvanberg(OptimizationLibrary):
 
         Raises:
             ValueError: If an option is invalid.
-        """
+        """  # noqa: D205, D212, D415
         if conv_tol is not None:
             ftol_rel = conv_tol
             ftol_abs = conv_tol
@@ -117,7 +119,8 @@ class MMASvanberg(OptimizationLibrary):
             ftol_abs=ftol_abs,
             xtol_rel=xtol_rel,
             xtol_abs=xtol_abs,
-            eq_tolerance=eq_tolerance,
+            ineq_toleranceeq_tolerance=ineq_tolerance,
+            normalize_design_space=normalize_design_space,
             **kwargs,
         )
 
@@ -177,7 +180,6 @@ class MMASvanberg(OptimizationLibrary):
             ]
             for cont in problem.constraints
         }
-        # f_opt, x_opt, is_feas, c_opt, c_opt_grad = problem.get_optimum()
         if f_opt is not None and not problem.minimize_objective:
             f_opt = -f_opt
         return OptimizationResult(

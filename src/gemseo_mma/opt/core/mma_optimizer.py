@@ -13,17 +13,21 @@
 # along with this program; if not, write to the Free Software Foundation,
 # Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 """MMA optimization solver."""
+
 from __future__ import annotations
 
 import logging
+from typing import TYPE_CHECKING
 
 import numpy as np
-from gemseo.algos.opt_problem import OptimizationProblem
 from numpy import atleast_2d
 from numpy import ndarray
 
 from gemseo_mma.opt.core.mma import compute_kkt_residual_on_local_approximation
 from gemseo_mma.opt.core.mma import solve_mma_local_approximation_problem
+
+if TYPE_CHECKING:
+    from gemseo.algos.opt_problem import OptimizationProblem
 
 # Import MMA functions
 
@@ -38,7 +42,8 @@ class MMAOptimizer:
     needed for the optimization algorithm. The original implementation the next
     iteration candidate is computed using mmasub function adapted from `
     https://github.com/arjendeetman/GCMMA-MMA-Python
-    <https://github.com/arjendeetman/GCMMA-MMA-Python>`_ . The external and internal move
+    <https://github.com/arjendeetman/GCMMA-MMA-Python>`_.
+    The external and internal move
     limit can be tuned to control minimum and maximum local approximation convexity. The
     max_optimization_step parameter can be used to control the optimization step. To
     avoid solver divergence in the case of highly non-linear problems one should use
@@ -88,6 +93,8 @@ class MMAOptimizer:
     """The amplification factor for successful iterations."""
     __asymptotes_distance_reduction_coefficient: float
     """The decremental factor for unsuccessful iterations."""
+    __ineq_tolerance: float
+    """The inequality constraints tolerance."""
 
     def __init__(self, problem: OptimizationProblem) -> None:
         """Constructor."""
@@ -144,6 +151,7 @@ class MMAOptimizer:
         self.__asymptotes_distance_reduction_coefficient = options.get(
             "asymptotes_distance_reduction_coefficient", self.__DEFAULT_ASYDECR
         )
+        self.__ineq_tolerance = options.get("ineq_tolerance", self.__DEFAULT_TOLERANCE)
 
         # initialize database
         if not self.__normalize_design_space:
@@ -219,10 +227,7 @@ class MMAOptimizer:
             and (change_relative_x > self.__xtol_rel)
             and (change_relative_f > self.__ftol_rel)
             and (change_f > self.__ftol_abs)
-            or (
-                any(fval > self.__problem.ineq_tolerance)
-                and change_fc > self.__ftol_abs
-            )
+            or (any(fval > self.__ineq_tolerance) and change_fc > self.__ftol_abs)
         ) and (outit < maxoutit):
             outit += 1
             outeriter += 1
@@ -284,7 +289,7 @@ class MMAOptimizer:
             # constraints functions
             f0val, df0dx, fval, dfdx = f0valnew, df0dxnew, fvalnew, dfdxnew
             # The residual vector of the KKT conditions is calculated
-            residu, kktnorm, residumax = compute_kkt_residual_on_local_approximation(
+            _, kktnorm, _ = compute_kkt_residual_on_local_approximation(
                 m,
                 n,
                 xmma,
