@@ -26,7 +26,7 @@ The format is based on
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-# Develop
+# Version 2.0.1 (December 2023)
 
 ## Added
 
@@ -34,8 +34,8 @@ and this project adheres to
 
 ## Fixed
 
-- A bug on the option handling was solved for design space normalization and inequality
-constraint tolerance.
+- A bug on the option handling was solved for design space normalization
+  and inequality constraint tolerance.
 
 ## Removed
 
