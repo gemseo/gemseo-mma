@@ -222,11 +222,13 @@ class MMAOptimizer:
         change_relative_x = 10
         outit = 0
         while (
-            (kktnorm > kkttol)
-            and (change_x > self.__xtol_abs)
-            and (change_relative_x > self.__xtol_rel)
-            and (change_relative_f > self.__ftol_rel)
-            and (change_f > self.__ftol_abs)
+            (
+                (kktnorm > kkttol)
+                and (change_x > self.__xtol_abs)
+                and (change_relative_x > self.__xtol_rel)
+                and (change_relative_f > self.__ftol_rel)
+                and (change_f > self.__ftol_abs)
+            )
             or (any(fval > self.__ineq_tolerance) and change_fc > self.__ftol_abs)
         ) and (outit < maxoutit):
             outit += 1
