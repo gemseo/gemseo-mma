@@ -16,7 +16,7 @@ contourpy==1.2.0
     # via matplotlib
 covdefaults==2.3.0
     # via gemseo-mma (pyproject.toml)
-coverage[toml]==7.4.2
+coverage[toml]==7.4.3
     # via
     #   covdefaults
     #   pytest-cov
@@ -34,7 +34,7 @@ fastjsonschema==2.19.1
     # via gemseo
 fonttools==4.49.0
     # via matplotlib
-gemseo[all]==5.2.1.dev157+g138bbb18
+gemseo[all]==5.2.1.dev159+g7e8d2c0f
     # via gemseo-mma (pyproject.toml)
 genson==1.2.2
     # via gemseo
@@ -56,7 +56,7 @@ markupsafe==2.1.5
     # via jinja2
 matplotlib==3.8.2
     # via gemseo
-mpmath==1.3.0
+mpmath==1.4.0a0
     # via sympy
 networkx==3.2.1
     # via gemseo
