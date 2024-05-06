@@ -18,7 +18,7 @@ import pytest
 from gemseo import create_discipline
 from gemseo import create_scenario
 from gemseo.algos.design_space import DesignSpace
-from gemseo.algos.opt_result import OptimizationResult
+from gemseo.algos.optimization_result import OptimizationResult
 from numpy import array
 from numpy import ones
 
@@ -186,14 +186,14 @@ def test_execution_with_scenario(analytical_test_2d_ineq, options, algo_ineq):
     opt = options.copy()
     opt["algo"] = algo_ineq
     analytical_test_2d_ineq.execute(opt)
-    problem = analytical_test_2d_ineq.formulation.opt_problem
+    problem = analytical_test_2d_ineq.formulation.optimization_problem
     assert pytest.approx(problem.solution.x_opt, abs=1e-2) == array([0.5, 0.5])
 
 
 @parametrized_options
 def test_direct_execution(analytical_test_2d_ineq, options):
     """Test for optimization problem execution using MMA solver."""
-    problem = analytical_test_2d_ineq.formulation.opt_problem
+    problem = analytical_test_2d_ineq.formulation.optimization_problem
     optimizer = MMAOptimizer(problem)
     optimizer.optimize(**options["algo_options"])
     for key in options["algo_options"]:
@@ -211,5 +211,5 @@ def test_direct_execution(analytical_test_2d_ineq, options):
 def test_get_optimum_from_database(analytical_test_2d_ineq):
     """Test for get_optimum_from_database call before opt problem resolution."""
     lib = MMASvanberg()
-    lib.problem = analytical_test_2d_ineq.formulation.opt_problem
+    lib.problem = analytical_test_2d_ineq.formulation.optimization_problem
     assert isinstance(lib.get_optimum_from_database(), OptimizationResult)
