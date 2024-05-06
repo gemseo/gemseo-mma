@@ -20,7 +20,7 @@ from typing import Any
 
 from gemseo.algos.opt.optimization_library import OptimizationAlgorithmDescription
 from gemseo.algos.opt.optimization_library import OptimizationLibrary
-from gemseo.algos.opt_result import OptimizationResult
+from gemseo.algos.optimization_result import OptimizationResult
 
 from gemseo_mma.opt.core.mma_optimizer import MMAOptimizer
 
@@ -164,7 +164,7 @@ class MMASvanberg(OptimizationLibrary):
         x_0 = problem.database.get_x_vect(1)
         # get last point as optimum
         x_opt = problem.database.get_x_vect(-1)
-        is_feas, _ = problem.get_violation_criteria(x_opt)
+        is_feas, _ = problem.check_design_point_is_feasible(x_opt)
         f_opt = problem.database.get_function_value(
             function_name=problem.objective.name, x_vect_or_iteration=x_opt
         )
