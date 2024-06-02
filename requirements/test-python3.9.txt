@@ -2,7 +2,7 @@
 #    uv pip compile --extra test --constraint requirements/test-constraints.in -o requirements/test-python3.9.txt --python-version 3.9 pyproject.toml
 annotated-types==0.7.0
     # via pydantic
-certifi==2024.2.2
+certifi==2024.6.2
     # via requests
 charset-normalizer==3.3.2
     # via requests
@@ -148,7 +148,7 @@ tomli==2.0.1
     #   pytest
 tqdm==4.66.2
     # via gemseo
-typing-extensions==4.12.0
+typing-extensions==4.12.1
     # via
     #   gemseo
     #   pydantic
