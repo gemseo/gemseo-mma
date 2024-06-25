@@ -16,35 +16,34 @@
 
 from __future__ import annotations
 
+from typing import TYPE_CHECKING
 from typing import Any
+from typing import ClassVar
 
-from gemseo.algos.opt.optimization_library import OptimizationAlgorithmDescription
-from gemseo.algos.opt.optimization_library import OptimizationLibrary
+from gemseo.algos.opt.base_optimization_library import BaseOptimizationLibrary
+from gemseo.algos.opt.base_optimization_library import OptimizationAlgorithmDescription
 from gemseo.algos.optimization_result import OptimizationResult
 
 from gemseo_mma.opt.core.mma_optimizer import MMAOptimizer
 
+if TYPE_CHECKING:
+    from gemseo.algos.base_problem import BaseProblem
 
-class MMASvanberg(OptimizationLibrary):
+
+class MMASvanberg(BaseOptimizationLibrary):
     """Svanberg Method of Moving Asymptotes optimization library."""
 
-    descriptions: dict[str, OptimizationAlgorithmDescription]
-    """The optimization algorithm description."""
-
-    def __init__(self) -> None:
-        """Constructor."""
-        super().__init__()
-        self.descriptions = {
-            "MMA": OptimizationAlgorithmDescription(
-                "MMA",
-                "MMA",
-                "MMA",
-                require_gradient=True,
-                handle_equality_constraints=False,
-                handle_inequality_constraints=True,
-                positive_constraints=False,
-            )
-        }
+    ALGORITHM_INFOS: ClassVar[dict[str, Any]] = {
+        "MMA": OptimizationAlgorithmDescription(
+            "MMA",
+            "MMA",
+            "MMA",
+            require_gradient=True,
+            handle_equality_constraints=False,
+            handle_inequality_constraints=True,
+            positive_constraints=False,
+        )
+    }
 
     def _get_options(
         self,
@@ -124,7 +123,9 @@ class MMASvanberg(OptimizationLibrary):
             **kwargs,
         )
 
-    def _run(self, **options: float | int | str) -> OptimizationResult:
+    def _run(
+        self, problem: BaseProblem, **options: float | int | str
+    ) -> OptimizationResult:
         """Runs the algorithm, to be overloaded by subclasses.
 
         Args:
