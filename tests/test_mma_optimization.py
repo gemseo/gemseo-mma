@@ -210,6 +210,6 @@ def test_direct_execution(analytical_test_2d_ineq, options):
 
 def test_get_optimum_from_database(analytical_test_2d_ineq):
     """Test for get_optimum_from_database call before opt problem resolution."""
-    lib = MMASvanberg()
+    lib = MMASvanberg("MMA")
     lib.problem = analytical_test_2d_ineq.formulation.optimization_problem
     assert isinstance(lib.get_optimum_from_database(), OptimizationResult)
