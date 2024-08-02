@@ -15,17 +15,15 @@
 """GCMMA-MMA-Python. This file is part of GCMMA-MMA-Python.
 
 GCMMA-MMA-Python is licensed under the terms of GNU General Public License as published
-by the Free Software Foundation. For more information and the LICENSE file, see `
-https://github.com/
-arjendeetman/GCMMA-MMA-Python <https://github.com/arjendeetman/GCMMA-MMA-Python>`_
-. The original work is written by
-Krister Svanberg in MATLAB. This is the python version of the code written Arjen
-Deetman. version 09-11-2019.
+by the Free Software Foundation. For more information and the LICENSE file,
+see [here](https://github.com/arjendeetman/GCMMA-MMA-Python).
+The original work is written by Krister Svanberg in MATLAB.
+This is the python version of the code written Arjen Deetman. version 09-11-2019.
 
 MMA optimizer.
 
-Original work written by Krister Svanberg in Matlab. This is the python version of the
-code written by Arjen Deetman.
+Original work written by Krister Svanberg in Matlab.
+This is the python version of the code written by Arjen Deetman.
 """
 
 from __future__ import annotations
@@ -98,15 +96,15 @@ def solve_mma_local_approximation_problem(
         xold2: The value of xval, two iterations ago (provided that n_iterations>2).
         f0val: The value of the objective function f_0 at xval.
         df0dx: The column vector with the derivatives of the objective function
-                f_0 with respect to the variables x_j, calculated at xval.
+            f_0 with respect to the variables x_j, calculated at xval.
         fval: The column vector with the values of the constraint functions f_i,
             calculated at xval.
         dfdx: The (m x n)-matrix with the derivatives of the constraint functions
-                f_i with respect to the variables x_j, calculated at xval.
+            f_i with respect to the variables x_j, calculated at xval.
         low: The column vector with the lower asymptotes from the previous
-                iteration (provided that n_iterations>1).
+            iteration (provided that n_iterations>1).
         upp: The column vector with the upper asymptotes from the previous
-                iteration (provided that n_iterations>1).
+            iteration (provided that n_iterations>1).
         a0: The constants a_0 in the term a_0*z.
         a: The column vector with the constants a_i in the terms a_i*z.
         c: The column vector with the constants c_i in the terms c_i*y_i.
@@ -121,22 +119,32 @@ def solve_mma_local_approximation_problem(
         asydecr: The decremental factor for unsuccessful iterations.
 
     Returns:
-        xmma  = The Column vector with the optimal values of the variables x_j
-                in the current MMA subproblem.
-        ymma  = The Column vector with the optimal values of the variables y_i
-                in the current MMA subproblem.
-        zmma  = The Scalar with the optimal value of the variable z
-                in the current MMA subproblem.
-        lam   = The Lagrange multipliers for the m general MMA constraints.
-        xsi   = The Lagrange multipliers for the n constraints alfa_j - x_j <= 0.
-        eta   = The Lagrange multipliers for the n constraints x_j - beta_j <= 0.
-        mu    = The Lagrange multipliers for the m constraints -y_i <= 0.
-        zet   = The Lagrange multiplier for the single constraint -z <= 0.
-        s     = The Slack variables for the m general MMA constraints.
-        low   = The Column vector with the lower asymptotes, calculated and used
-                in the current MMA subproblem.
-        upp   = The Column vector with the upper asymptotes, calculated and used
-                in the current MMA subproblem.
+        The Column vector with the optimal values of the variables x_j
+        in the current MMA subproblem.
+
+        The Column vector with the optimal values of the variables y_i
+        in the current MMA subproblem.
+
+        The Scalar with the optimal value of the variable z
+        in the current MMA subproblem.
+
+        The Lagrange multipliers for the m general MMA constraints.
+
+        The Lagrange multipliers for the n constraints alfa_j - x_j <= 0.
+
+        The Lagrange multipliers for the n constraints x_j - beta_j <= 0.
+
+        The Lagrange multipliers for the m constraints -y_i <= 0.
+
+        The Lagrange multiplier for the single constraint -z <= 0.
+
+        The Slack variables for the m general MMA constraints.
+
+        The Column vector with the lower asymptotes, calculated and used
+        in the current MMA subproblem.
+
+        The Column vector with the upper asymptotes, calculated and used
+        in the current MMA subproblem.
     """
     epsimin = 0.0000001
     raa0 = 0.00001
@@ -236,7 +244,7 @@ def __subsolv(
     ndarray,
     ndarray,
     ndarray,
-    ndarray | ndarray,
+    ndarray,
 ]:
     """Solve the subproblem by a primal-dual Newton method.
 

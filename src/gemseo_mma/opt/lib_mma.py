@@ -123,9 +123,7 @@ class MMASvanberg(BaseOptimizationLibrary):
             **kwargs,
         )
 
-    def _run(
-        self, problem: BaseProblem, **options: float | int | str
-    ) -> OptimizationResult:
+    def _run(self, problem: BaseProblem, **options: float | str) -> OptimizationResult:
         """Runs the algorithm, to be overloaded by subclasses.
 
         Args:
@@ -165,7 +163,7 @@ class MMASvanberg(BaseOptimizationLibrary):
         x_0 = problem.database.get_x_vect(1)
         # get last point as optimum
         x_opt = problem.database.get_x_vect(-1)
-        is_feas, _ = problem.check_design_point_is_feasible(x_opt)
+        is_feas, _ = problem.history.check_design_point_is_feasible(x_opt)
         f_opt = problem.database.get_function_value(
             function_name=problem.objective.name, x_vect_or_iteration=x_opt
         )
