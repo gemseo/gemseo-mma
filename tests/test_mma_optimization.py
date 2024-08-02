@@ -98,7 +98,7 @@ def d_cstr_func2(x=0.0, y=0.0):
     return jac  # noqa: RET504
 
 
-@pytest.fixture()
+@pytest.fixture
 def analytical_test_2d_ineq(x0, y0, inactive_constraint, maximization):
     """Test for lagrange multiplier."""
     if maximization:

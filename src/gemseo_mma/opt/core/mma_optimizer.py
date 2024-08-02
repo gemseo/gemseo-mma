@@ -27,9 +27,7 @@ from gemseo_mma.opt.core.mma import compute_kkt_residual_on_local_approximation
 from gemseo_mma.opt.core.mma import solve_mma_local_approximation_problem
 
 if TYPE_CHECKING:
-    from gemseo.algos.opt_problem import OptimizationProblem
-
-# Import MMA functions
+    from gemseo.algos.optimization_problem import OptimizationProblem
 
 LOGGER = logging.getLogger(__name__)
 
@@ -40,15 +38,14 @@ class MMAOptimizer:
     This class run an optimization algorithm to solve Non-linear Optimization problems
     with constraints. The objective function and the constraints and their gradients are
     needed for the optimization algorithm. The original implementation the next
-    iteration candidate is computed using mmasub function adapted from `
-    https://github.com/arjendeetman/GCMMA-MMA-Python
-    <https://github.com/arjendeetman/GCMMA-MMA-Python>`_.
+    iteration candidate is computed using mmasub function adapted from
+    [this](https://github.com/arjendeetman/GCMMA-MMA-Python).
     The external and internal move
     limit can be tuned to control minimum and maximum local approximation convexity. The
     max_optimization_step parameter can be used to control the optimization step. To
     avoid solver divergence in the case of highly non-linear problems one should use
-    smaller values of the max_optimization_step, max_asymptote_distance and
-    min_asymptote_distance.
+    smaller values of the `max_optimization_step`, `max_asymptote_distance` and
+    `min_asymptote_distance`.
     """
 
     __DEFAULT_NORMALIZE_DESIGN_SPACE = False
@@ -115,7 +112,7 @@ class MMAOptimizer:
         self.__asymptotes_distance_amplification_coefficient = self.__DEFAULT_ASYINCR
         self.__asymptotes_distance_reduction_coefficient = self.__DEFAULT_ASYDECR
 
-    def optimize(self, **options: bool | int | float) -> tuple[str, int]:
+    def optimize(self, **options: bool | float) -> tuple[str, int]:
         """Optimize the problem.
 
         Args:
@@ -338,13 +335,13 @@ class MMAOptimizer:
             The objective and constraint value in the provided design point and their
                 gradients.
         """
-        f0val = self.__problem.objective(xval)
+        f0val = self.__problem.objective.evaluate(xval)
         df0dx = self.__problem.objective.jac(xval)
         df0dx = np.reshape(df0dx, (df0dx.size, 1))
         constraint_list = []
         constraint_jac_list = []
         for constraint in self.__problem.constraints:
-            constraint_list.append(constraint(xval).flatten())
+            constraint_list.append(constraint.evaluate(xval).flatten())
             constraint_jac_list.append(atleast_2d(constraint.jac(xval)))
         fval = np.concatenate(constraint_list)
         fval = np.reshape(fval, (fval.size, 1))
