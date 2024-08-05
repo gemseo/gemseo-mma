@@ -1,15 +1,15 @@
 # Copyright 2021 IRT Saint Exupéry, https://www.irt-saintexupery.com
 #
 # This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU Lesser General Public
+# modify it under the terms of the GNU General Public
 # License version 3 as published by the Free Software Foundation.
 #
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-# Lesser General Public License for more details.
+# General Public License for more details.
 #
-# You should have received a copy of the GNU Lesser General Public License
+# You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software Foundation,
 # Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 """MMA optimization solver."""
@@ -27,7 +27,7 @@ from gemseo_mma.opt.core.mma import compute_kkt_residual_on_local_approximation
 from gemseo_mma.opt.core.mma import solve_mma_local_approximation_problem
 
 if TYPE_CHECKING:
-    from gemseo.algos.optimization_problem import OptimizationProblem
+    from gemseo.algos.opt_problem import OptimizationProblem
 
 LOGGER = logging.getLogger(__name__)
 
@@ -335,13 +335,13 @@ class MMAOptimizer:
             The objective and constraint value in the provided design point and their
                 gradients.
         """
-        f0val = self.__problem.objective.evaluate(xval)
+        f0val = self.__problem.objective(xval)
         df0dx = self.__problem.objective.jac(xval)
         df0dx = np.reshape(df0dx, (df0dx.size, 1))
         constraint_list = []
         constraint_jac_list = []
         for constraint in self.__problem.constraints:
-            constraint_list.append(constraint.evaluate(xval).flatten())
+            constraint_list.append(constraint(xval).flatten())
             constraint_jac_list.append(atleast_2d(constraint.jac(xval)))
         fval = np.concatenate(constraint_list)
         fval = np.reshape(fval, (fval.size, 1))

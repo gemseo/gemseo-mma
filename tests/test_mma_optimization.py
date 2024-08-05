@@ -1,24 +1,25 @@
 # Copyright 2021 IRT Saint Exupéry, https://www.irt-saintexupery.com
 #
 # This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU Lesser General Public
+# modify it under the terms of the GNU General Public
 # License version 3 as published by the Free Software Foundation.
 #
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-# Lesser General Public License for more details.
+# General Public License for more details.
 #
-# You should have received a copy of the GNU Lesser General Public License
+# You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software Foundation,
 # Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+
 from __future__ import annotations
 
 import pytest
 from gemseo import create_discipline
 from gemseo import create_scenario
 from gemseo.algos.design_space import DesignSpace
-from gemseo.algos.optimization_result import OptimizationResult
+from gemseo.algos.opt_result import OptimizationResult
 from numpy import array
 from numpy import ones
 
@@ -186,14 +187,14 @@ def test_execution_with_scenario(analytical_test_2d_ineq, options, algo_ineq):
     opt = options.copy()
     opt["algo"] = algo_ineq
     analytical_test_2d_ineq.execute(opt)
-    problem = analytical_test_2d_ineq.formulation.optimization_problem
+    problem = analytical_test_2d_ineq.formulation.opt_problem
     assert pytest.approx(problem.solution.x_opt, abs=1e-2) == array([0.5, 0.5])
 
 
 @parametrized_options
 def test_direct_execution(analytical_test_2d_ineq, options):
     """Test for optimization problem execution using MMA solver."""
-    problem = analytical_test_2d_ineq.formulation.optimization_problem
+    problem = analytical_test_2d_ineq.formulation.opt_problem
     optimizer = MMAOptimizer(problem)
     optimizer.optimize(**options["algo_options"])
     for key in options["algo_options"]:
@@ -210,6 +211,6 @@ def test_direct_execution(analytical_test_2d_ineq, options):
 
 def test_get_optimum_from_database(analytical_test_2d_ineq):
     """Test for get_optimum_from_database call before opt problem resolution."""
-    lib = MMASvanberg("MMA")
-    lib.problem = analytical_test_2d_ineq.formulation.optimization_problem
+    lib = MMASvanberg()
+    lib.problem = analytical_test_2d_ineq.formulation.opt_problem
     assert isinstance(lib.get_optimum_from_database(), OptimizationResult)

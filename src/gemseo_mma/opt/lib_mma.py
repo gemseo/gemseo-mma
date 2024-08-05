@@ -1,49 +1,50 @@
 # Copyright 2021 IRT Saint Exupéry, https://www.irt-saintexupery.com
 #
 # This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU Lesser General Public
+# modify it under the terms of the GNU General Public
 # License version 3 as published by the Free Software Foundation.
 #
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-# Lesser General Public License for more details.
+# General Public License for more details.
 #
-# You should have received a copy of the GNU Lesser General Public License
+# You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software Foundation,
 # Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 """MMA optimizer library."""
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING
 from typing import Any
-from typing import ClassVar
 
-from gemseo.algos.opt.base_optimization_library import BaseOptimizationLibrary
-from gemseo.algos.opt.base_optimization_library import OptimizationAlgorithmDescription
-from gemseo.algos.optimization_result import OptimizationResult
+from gemseo.algos.opt.optimization_library import OptimizationAlgorithmDescription
+from gemseo.algos.opt.optimization_library import OptimizationLibrary
+from gemseo.algos.opt_result import OptimizationResult
 
 from gemseo_mma.opt.core.mma_optimizer import MMAOptimizer
 
-if TYPE_CHECKING:
-    from gemseo.algos.base_problem import BaseProblem
 
-
-class MMASvanberg(BaseOptimizationLibrary):
+class MMASvanberg(OptimizationLibrary):
     """Svanberg Method of Moving Asymptotes optimization library."""
 
-    ALGORITHM_INFOS: ClassVar[dict[str, Any]] = {
-        "MMA": OptimizationAlgorithmDescription(
-            "MMA",
-            "MMA",
-            "MMA",
-            require_gradient=True,
-            handle_equality_constraints=False,
-            handle_inequality_constraints=True,
-            positive_constraints=False,
-        )
-    }
+    descriptions: dict[str, OptimizationAlgorithmDescription]
+    """The optimization algorithm description."""
+
+    def __init__(self) -> None:
+        """Constructor."""
+        super().__init__()
+        self.descriptions = {
+            "MMA": OptimizationAlgorithmDescription(
+                "MMA",
+                "MMA",
+                "MMA",
+                require_gradient=True,
+                handle_equality_constraints=False,
+                handle_inequality_constraints=True,
+                positive_constraints=False,
+            )
+        }
 
     def _get_options(
         self,
@@ -123,7 +124,7 @@ class MMASvanberg(BaseOptimizationLibrary):
             **kwargs,
         )
 
-    def _run(self, problem: BaseProblem, **options: float | str) -> OptimizationResult:
+    def _run(self, **options: float | str) -> OptimizationResult:
         """Runs the algorithm, to be overloaded by subclasses.
 
         Args:
@@ -163,7 +164,7 @@ class MMASvanberg(BaseOptimizationLibrary):
         x_0 = problem.database.get_x_vect(1)
         # get last point as optimum
         x_opt = problem.database.get_x_vect(-1)
-        is_feas, _ = problem.history.check_design_point_is_feasible(x_opt)
+        is_feas, _ = problem.get_violation_criteria(x_opt)
         f_opt = problem.database.get_function_value(
             function_name=problem.objective.name, x_vect_or_iteration=x_opt
         )

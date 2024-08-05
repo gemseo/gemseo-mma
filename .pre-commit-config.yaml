@@ -72,12 +72,12 @@ repos:
   rev: v1.5.5
   hooks:
     - id: insert-license
-      name: insert LGPL license
+      name: insert GPL license
       exclude: ^docs
       files: \.py$
       args:
         - --license-filepath
-        - LICENSES/headers/LGPL-3.0.txt
+        - LICENSES/headers/GPL-3.0.txt
     - id: insert-license
       name: insert BSD license
       files: ^docs/(examples|tutorials).*\.py$

@@ -4,9 +4,9 @@ authors = [
     {name = "Simone Coniglio", email = "contact@gemseo.org"}
 ]
 description = "A gemseo wrapper of Python version of Method of Moving Asymptothes in the implementation of Arjen Deetman."
-license = {text = "GNU Lesser General Public License v3"}
+license = {text = "GNU General Public License v3"}
 classifiers = [
-    "License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
     "Intended Audience :: Science/Research",
     "Topic :: Scientific/Engineering",
     "Operating System :: POSIX :: Linux",
