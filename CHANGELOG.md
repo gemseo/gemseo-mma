@@ -26,6 +26,12 @@ The format is based on
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# Version 2.0.2 (August 2024)
+
+## Fixed
+
+- The license of the package is now GPLv3 since it uses a module that is GPLv3.
+
 # Version 2.0.1 (December 2023)
 
 ## Added

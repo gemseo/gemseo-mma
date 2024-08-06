@@ -9,10 +9,10 @@ Commons, PO Box 1866, Mountain View, CA 94042, USA.
 
 # Licenses
 
-## GNU LGPL v3.0
-The `gemseo-mma` source code is distributed under the GNU LGPL v3.0 license.
+## GNU GPL v3.0
+The `gemseo-mma` source code is distributed under the GNU GPL v3.0 license.
 ```
---8<-- "LICENSES/headers/LGPL-3.0.txt"
+--8<-- "LICENSES/headers/GPL-3.0.txt"
 ```
 
 ## BSD 0-Clause
