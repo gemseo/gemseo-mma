@@ -1,17 +1,18 @@
 # Copyright 2021 IRT Saint Exupéry, https://www.irt-saintexupery.com
 #
 # This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU Lesser General Public
+# modify it under the terms of the GNU General Public
 # License version 3 as published by the Free Software Foundation.
 #
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-# Lesser General Public License for more details.
+# General Public License for more details.
 #
-# You should have received a copy of the GNU Lesser General Public License
+# You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software Foundation,
 # Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+
 from __future__ import annotations
 
 import pytest
@@ -98,7 +99,7 @@ def d_cstr_func2(x=0.0, y=0.0):
     return jac  # noqa: RET504
 
 
-@pytest.fixture()
+@pytest.fixture
 def analytical_test_2d_ineq(x0, y0, inactive_constraint, maximization):
     """Test for lagrange multiplier."""
     if maximization:
