@@ -7,87 +7,48 @@ http://creativecommons.org/licenses/by-sa/4.0/ or send a letter to Creative
 Commons, PO Box 1866, Mountain View, CA 94042, USA.
 -->
 
-A gemseo wrapper of Python version of Method of Moving Asymptothes in the implementation
-of Arjen Deetman.
+# gemseo-mma
 
-# Documentation
+[![PyPI - License](https://img.shields.io/pypi/l/gemseo)](https://www.gnu.org/licenses/gpl-3.0.en.html)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/gemseo-mma)](https://pypi.org/project/gemseo-mma/)
+[![PyPI](https://img.shields.io/pypi/v/gemseo-mma)](https://pypi.org/project/gemseo-mma/)
+[![Codecov branch](https://img.shields.io/codecov/c/gitlab/gemseo:dev/gemseo-mma/develop)](https://app.codecov.io/gl/gemseo:dev/gemseo-mma)
 
-See <https://gemseo.readthedocs.io/en/stable/plugins.html>.
+## Overview
 
-# Bugs/Questions
+A gemseo wrapper of Python version of Method of Moving Asymptothes in the implementation of Arjen Deetman.
 
-Please use the gitlab issue tracker at
-<https://gitlab.com/gemseo/dev/gemseo-mma/-/issues>
+## Installation
+
+Install the latest stable version with `pip install gemseo-mma`.
+
+Install the development version with
+`pip install gemseo-mma@git+https://gitlab.com/gemseo/dev/gemseo-mma.git@develop`.
+
+See [pip](https://pip.pypa.io/en/stable/getting-started/) for more information.
+
+## Bugs and questions
+
+Please use the [gitlab issue tracker](https://gitlab.com/gemseo/dev/gemseo-mma/-/issues)
 to submit bugs or questions.
 
-# License
+## Contributing
 
-The **gemseo-mma** source code is distributed under the GNU LGPL v3.0 license.
-A copy of it can be found in the LICENSE.txt file.
-The GNU LGPL v3.0 license is an exception to the GNU GPL v3.0 license.
-A copy of the GNU GPL v3.0 license can be found in the LICENSES folder.
+See the [contributing section of GEMSEO](https://gemseo.readthedocs.io/en/stable/software/developing.html#dev).
 
-The **gemseo-mma** examples are distributed under the BSD 0-Clause, a permissive
-license that allows to copy paste the code of examples without preserving the
-copyright mentions.
-
-The **gemseo-mma** documentation is distributed under the CC BY-SA 4.0 license.
-
-The **gemseo-mma** product depends on other software which have various licenses.
-The list of dependencies with their licenses is given in the CREDITS.md file.
-
-# Installation
-
-pip install gemseo-mma
-
-# Usage
-
-Like any other gemseo wrapped solver, MMA solver can be called setting
-the algo option to `"MMA"`. This algorithm can be used for single
-objective continuous optimization problem with non-linear inequality
-constraints.
-
-Advanced options:
-
-- tol: The KKT residual norm tolerance. This is not the one
-    implemented in GEMSEO as it uses the local functions to be computed.
-- max_optimization_step: Also known as `move` parameter control the
-    maximum distance of the next iteration design point from the current
-    one. Reducing this parameter avoid divergence for highly non-linear
-    problems.
-- min_asymptote_distance: The minimum distance of the asymptotes from
-    the current design variable value.
-- max_asymptote_distance: The maximum distance of the asymptotes from
-    the current design variable value.
-- initial_asymptotes_distance: The initial asymptote distance from the
-    current design variable value.
-- asymptotes_distance_amplification_coefficient The incremental factor
-    of asymptote distance from the current design variable value for
-    successful iterations.
-- asymptotes_distance_reduction_coefficient: The decremental factor of
-    asymptote distance from the current design variable value for
-    successful iterations.
-- conv_tol: If provided control all other convergence tolerances.
-
-The shortest is the distance of the asymptotes, the highest is the
-convexity of the local approximation. It\'s another mechanism to control
-the optimization step. You can find an example in
-examples/analytic_example.ipynb.
-
-# Contributors and acknowledgment
+## Contributors
 
 - Simone Coniglio
 - Antoine Dechaume
-- Original implementation of Arjen Deetman, see
-    <https://github.com/arjendeetman/GCMMA-MMA-Python>.
+- Original implementation of Arjen Deetman, see [here](https://github.com/arjendeetman/GCMMA-MMA-Python).
 
-# References
+## References
 
 Svanberg, K. (1987). The Method of Moving Asymptotes -- A new method for
 structural optimization. International Journal for Numerical Methods in
-Engineering 24, 359-373. <doi:10.1002/nme.1620240207>, see
-<https://onlinelibrary.wiley.com/doi/abs/10.1002/nme.1620240207>.
+Engineering 24, 359-373. `doi:10.1002/nme.1620240207`,
+see [here](https://onlinelibrary.wiley.com/doi/abs/10.1002/nme.1620240207).
 
 Svanberg, K. (n.d.). MMA and GCMMA -- two methods for nonlinear
-optimization. Retrieved August 3, 2017 from
-<https://people.kth.se/~krille/mmagcmma.pdf>
+optimization.
+Retrieved August 3, 2017 from [this](https://people.kth.se/~krille/mmagcmma.pdf).
