@@ -35,7 +35,7 @@ fastjsonschema==2.20.0
     # via gemseo
 fonttools==4.53.1
     # via matplotlib
-gemseo @ git+https://gitlab.com/gemseo/dev/gemseo.git@7fbaca1e298cff98eaf33383731d0e4ca2d8c6ef
+gemseo @ git+https://gitlab.com/gemseo/dev/gemseo.git@0ee46a2c53110d008c3858df0fbccb0d00f583e4
     # via
     #   -c requirements/test-constraints.in
     #   gemseo-mma (pyproject.toml)
@@ -175,7 +175,7 @@ packaging==24.1
     #   mkdocs
     #   mkdocs-gallery
     #   plotly
-paginate==0.5.6
+paginate==0.5.7
     # via mkdocs-material
 pandas==2.2.2
     # via gemseo
@@ -217,7 +217,7 @@ pymdown-extensions==10.9
     #   mkdocstrings
 pypandoc==1.13
     # via mkdocs-bibtex
-pyparsing==3.1.2
+pyparsing==3.1.4
     # via
     #   matplotlib
     #   mike
