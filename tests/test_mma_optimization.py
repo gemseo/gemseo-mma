@@ -116,8 +116,8 @@ def analytical_test_2d_ineq(x0, y0, inactive_constraint, maximization):
         "AutoPyDiscipline", py_func=cstr_func2, py_jac=d_cstr_func2
     )
     ds = DesignSpace()
-    ds.add_variable("x", l_b=0.0, u_b=1.0, value=x0)
-    ds.add_variable("y", l_b=0.0, u_b=1.0, value=y0)
+    ds.add_variable("x", lower_bound=0.0, upper_bound=1.0, value=x0)
+    ds.add_variable("y", lower_bound=0.0, upper_bound=1.0, value=y0)
     scenario = create_scenario(
         disciplines=[disc1, disc2, disc3],
         formulation="DisciplinaryOpt",
