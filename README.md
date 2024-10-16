@@ -20,10 +20,7 @@ A gemseo wrapper of Python version of Method of Moving Asymptothes in the implem
 
 ## Installation
 
-Install the latest stable version with `pip install gemseo-mma`.
-
-Install the development version with
-`pip install gemseo-mma@git+https://gitlab.com/gemseo/dev/gemseo-mma.git@develop`.
+Install the latest version with `pip install gemseo-mma`.
 
 See [pip](https://pip.pypa.io/en/stable/getting-started/) for more information.
 

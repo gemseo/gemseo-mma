@@ -24,7 +24,7 @@ from numpy import array
 from numpy import ones
 
 from gemseo_mma.opt.core.mma_optimizer import MMAOptimizer
-from gemseo_mma.opt.lib_mma import MMASvanberg
+from gemseo_mma.opt.mma import MMASvanberg
 
 
 @pytest.fixture(params=[0.0, 0.25, 0.1, 1.0])
@@ -58,7 +58,7 @@ def obj_func(x=0.0, y=0.0):
 
 
 def d_obj_func(x=0.0, y=0.0):
-    """The objective function jacobian."""
+    """The objective function Jacobian."""
     jac = array([2.0 * (x[0] - 1.0), 2 * (y[0] - 1.0)])
     return jac  # noqa: RET504
 
@@ -70,7 +70,7 @@ def obj_func_max(x=0.0, y=0.0):
 
 
 def d_obj_func_max(x=0.0, y=0.0):
-    """The objective function for maximization jacobian."""
+    """The objective function for maximization Jacobian."""
     jac = array([-2.0 * (x[0] - 1.0), -2 * (y[0] - 1.0)])
     return jac  # noqa: RET504
 
@@ -82,7 +82,7 @@ def cstr_func(x=0.0, y=0.0):
 
 
 def d_cstr_func(x=0.0, y=0.0):
-    """The inequality constraint function jacobian."""
+    """The inequality constraint function Jacobian."""
     jac = ones((1, 2))
     return jac  # noqa: RET504
 
@@ -94,7 +94,7 @@ def cstr_func2(x=0.0, y=0.0):
 
 
 def d_cstr_func2(x=0.0, y=0.0):
-    """The equality constraint function jacobian."""
+    """The equality constraint function Jacobian."""
     jac = array([-2 * x[0], -2 * y[0]])
     return jac  # noqa: RET504
 
@@ -186,7 +186,7 @@ def test_execution_with_scenario(analytical_test_2d_ineq, options, algo_ineq):
     """Test for optimization scenario execution using MMA solver."""
     opt = options.copy()
     opt["algo"] = algo_ineq
-    analytical_test_2d_ineq.execute(opt)
+    analytical_test_2d_ineq.execute(**opt)
     problem = analytical_test_2d_ineq.formulation.optimization_problem
     assert pytest.approx(problem.solution.x_opt, abs=1e-2) == array([0.5, 0.5])
 
