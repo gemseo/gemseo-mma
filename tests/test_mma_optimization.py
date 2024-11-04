@@ -120,7 +120,7 @@ def analytical_test_2d_ineq(x0, y0, inactive_constraint, maximization):
     ds.add_variable("y", lower_bound=0.0, upper_bound=1.0, value=y0)
     scenario = create_scenario(
         disciplines=[disc1, disc2, disc3],
-        formulation="DisciplinaryOpt",
+        formulation_name="DisciplinaryOpt",
         objective_name="f",
         design_space=ds,
         maximize_objective=maximization,
@@ -136,44 +136,37 @@ parametrized_options = pytest.mark.parametrize(
     [
         {
             "max_iter": 50,
-            "algo_options": {"tol": 1e-4, "normalize_design_space": True},
+            "tol": 1e-4,
+            "normalize_design_space": True,
         },
         {
             "max_iter": 50,
-            "algo_options": {
-                "tol": 1e-4,
-                "normalize_design_space": False,
-                "ineq_tolerance": 1e-2,
-            },
+            "tol": 1e-4,
+            "normalize_design_space": False,
+            "ineq_tolerance": 1e-2,
         },
         {
             "max_iter": 30,
-            "algo_options": {
-                "tol": 1e-16,
-                "conv_tol": 1e-16,
-            },
+            "tol": 1e-16,
+            "conv_tol": 1e-16,
         },
         {
             "max_iter": 50,
-            "algo_options": {
-                "xtol_rel": 1e-7,
-                "xtol_abs": 1e-7,
-                "ftol_rel": 1e-7,
-                "ftol_abs": 1e-7,
-                "tol": 1e-16,
-            },
+            "xtol_rel": 1e-7,
+            "xtol_abs": 1e-7,
+            "ftol_rel": 1e-7,
+            "ftol_abs": 1e-7,
+            "tol": 1e-16,
         },
         {
             "max_iter": 50,
-            "algo_options": {
-                "xtol_rel": 1e-7,
-                "xtol_abs": 1e-7,
-                "ftol_rel": 1e-7,
-                "ftol_abs": 1e-7,
-                "initial_asymptotes_distance": 0.1,
-                "asymptotes_distance_amplification_coefficient": 1.3,
-                "asymptotes_distance_reduction_coefficient": 0.6,
-            },
+            "xtol_rel": 1e-7,
+            "xtol_abs": 1e-7,
+            "ftol_rel": 1e-7,
+            "ftol_abs": 1e-7,
+            "initial_asymptotes_distance": 0.1,
+            "asymptotes_distance_amplification_coefficient": 1.3,
+            "asymptotes_distance_reduction_coefficient": 0.6,
         },
     ],
 )
@@ -185,7 +178,7 @@ parametrized_algo_ineq = pytest.mark.parametrize("algo_ineq", ["MMA"])
 def test_execution_with_scenario(analytical_test_2d_ineq, options, algo_ineq):
     """Test for optimization scenario execution using MMA solver."""
     opt = options.copy()
-    opt["algo"] = algo_ineq
+    opt["algo_name"] = algo_ineq
     analytical_test_2d_ineq.execute(**opt)
     problem = analytical_test_2d_ineq.formulation.optimization_problem
     assert pytest.approx(problem.solution.x_opt, abs=1e-2) == array([0.5, 0.5])
@@ -196,13 +189,10 @@ def test_direct_execution(analytical_test_2d_ineq, options):
     """Test for optimization problem execution using MMA solver."""
     problem = analytical_test_2d_ineq.formulation.optimization_problem
     optimizer = MMAOptimizer(problem)
-    optimizer.optimize(**options["algo_options"])
-    for key in options["algo_options"]:
+    optimizer.optimize(**options)
+    for key in options:
         if key != "conv_tol":
-            assert (
-                getattr(optimizer, "_MMAOptimizer__" + key)
-                == options["algo_options"][key]
-            )
+            assert getattr(optimizer, "_MMAOptimizer__" + key) == options[key]
     assert pytest.approx(problem.design_space.get_current_value(), abs=1e-2) == array([
         0.5,
         0.5,
@@ -212,5 +202,5 @@ def test_direct_execution(analytical_test_2d_ineq, options):
 def test_get_optimum_from_database(analytical_test_2d_ineq):
     """Test for get_optimum_from_database call before opt problem resolution."""
     lib = MMASvanberg("MMA")
-    lib.problem = analytical_test_2d_ineq.formulation.optimization_problem
-    assert isinstance(lib.get_optimum_from_database(), OptimizationResult)
+    lib._problem = analytical_test_2d_ineq.formulation.optimization_problem
+    assert isinstance(lib._get_result(lib._problem, None, None), OptimizationResult)

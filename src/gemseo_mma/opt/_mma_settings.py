@@ -19,12 +19,10 @@ from __future__ import annotations
 from functools import partial
 from typing import TYPE_CHECKING
 
-from gemseo.algos.opt._base_optimization_library_settings import (
-    BaseOptimizationLibrarySettings,
+from gemseo.algos.opt.base_gradient_based_algorithm_settings import (
+    BaseGradientBasedAlgorithmSettings,
 )
-from gemseo.algos.opt._gradient_based_algorithm_settings import (
-    GradientBasedAlgorithmSettings,
-)
+from gemseo.algos.opt.base_optimizer_settings import BaseOptimizerSettings
 from gemseo.utils.pydantic import copy_field
 from pydantic import Field
 from pydantic import NonNegativeFloat  # noqa: TCH002
@@ -34,12 +32,10 @@ if TYPE_CHECKING:
     from typing_extensions import Self
 
 
-copy_field_opt = partial(copy_field, model=BaseOptimizationLibrarySettings)
+copy_field_opt = partial(copy_field, model=BaseOptimizerSettings)
 
 
-class MMASvanbergSettings(
-    BaseOptimizationLibrarySettings, GradientBasedAlgorithmSettings
-):
+class MMASvanbergSettings(BaseOptimizerSettings, BaseGradientBasedAlgorithmSettings):
     """The settings for the MMA Svanberg algorithm."""
 
     ftol_abs: NonNegativeFloat = copy_field_opt("ftol_abs", default=1e-14)
