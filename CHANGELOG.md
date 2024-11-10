@@ -26,41 +26,48 @@ The format is based on
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-# Version 2.0.2 (August 2024)
+## Version 3.0.0 (November 2024)
 
-## Fixed
+### Added
+
+- Support GEMSEO v6.
+- Support for Python 3.12.
+
+## Version 2.0.2 (August 2024)
+
+### Fixed
 
 - The license of the package is now GPLv3 since it uses a module that is GPLv3.
 
-# Version 2.0.1 (December 2023)
+## Version 2.0.1 (December 2023)
 
-## Added
+### Added
 
 - Support for Python 3.11.
 
-## Fixed
+### Fixed
 
 - A bug on the option handling was solved for design space normalization
   and inequality constraint tolerance.
 
-## Removed
+### Removed
 
 - Support for Python 3.8.
 
-# Version 2.0.0 (June 2023)
+## Version 2.0.0 (June 2023)
 
 Update to GEMSEO 5.
 
-## Fixed
+### Fixed
 
 - A bug on the option settings was solved.
 
-## Changed
+### Changed
 
 - The `ctol_abs` option was removed, this was anyway not used.
 - The attributes and option names were changed to be more explicit.
 - The solver attributes are made private.
 
-# Version 1.0.0 (February 2023)
+## Version 1.0.0 (February 2023)
 
 First release.
