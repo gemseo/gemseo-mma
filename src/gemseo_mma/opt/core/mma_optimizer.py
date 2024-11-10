@@ -27,7 +27,7 @@ from gemseo_mma.opt.core.mma import compute_kkt_residual_on_local_approximation
 from gemseo_mma.opt.core.mma import solve_mma_local_approximation_problem
 
 if TYPE_CHECKING:
-    from gemseo.algos.opt_problem import OptimizationProblem
+    from gemseo.algos.optimization_problem import OptimizationProblem
 
 LOGGER = logging.getLogger(__name__)
 
@@ -335,13 +335,13 @@ class MMAOptimizer:
             The objective and constraint value in the provided design point and their
                 gradients.
         """
-        f0val = self.__problem.objective(xval)
+        f0val = self.__problem.objective.evaluate(xval)
         df0dx = self.__problem.objective.jac(xval)
         df0dx = np.reshape(df0dx, (df0dx.size, 1))
         constraint_list = []
         constraint_jac_list = []
         for constraint in self.__problem.constraints:
-            constraint_list.append(constraint(xval).flatten())
+            constraint_list.append(constraint.evaluate(xval).flatten())
             constraint_jac_list.append(atleast_2d(constraint.jac(xval)))
         fval = np.concatenate(constraint_list)
         fval = np.reshape(fval, (fval.size, 1))

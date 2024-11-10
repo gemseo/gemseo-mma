@@ -9,7 +9,7 @@ Commons, PO Box 1866, Mountain View, CA 94042, USA.
 
 # gemseo-mma
 
-[![PyPI - License](https://img.shields.io/pypi/l/gemseo)](https://www.gnu.org/licenses/gpl-3.0.en.html)
+[![PyPI - License](https://img.shields.io/pypi/l/gemseo-mma)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/gemseo-mma)](https://pypi.org/project/gemseo-mma/)
 [![PyPI](https://img.shields.io/pypi/v/gemseo-mma)](https://pypi.org/project/gemseo-mma/)
 [![Codecov branch](https://img.shields.io/codecov/c/gitlab/gemseo:dev/gemseo-mma/develop)](https://app.codecov.io/gl/gemseo:dev/gemseo-mma)
@@ -20,10 +20,7 @@ A gemseo wrapper of Python version of Method of Moving Asymptothes in the implem
 
 ## Installation
 
-Install the latest stable version with `pip install gemseo-mma`.
-
-Install the development version with
-`pip install gemseo-mma@git+https://gitlab.com/gemseo/dev/gemseo-mma.git@develop`.
+Install the latest version with `pip install gemseo-mma`.
 
 See [pip](https://pip.pypa.io/en/stable/getting-started/) for more information.
 
