@@ -4,7 +4,7 @@ annotated-types==0.7.0
     # via pydantic
 babel==2.16.0
     # via mkdocs-material
-black==24.10.0
+black==25.1.0
     # via gemseo-mma (pyproject.toml)
 bracex==2.5.post1
     # via wcmatch
@@ -35,9 +35,9 @@ eval-type-backport==0.2.0
     # via gemseo
 fastjsonschema==2.20.0
     # via gemseo
-fonttools==4.55.7
+fonttools==4.55.8
     # via matplotlib
-gemseo @ git+https://gitlab.com/gemseo/dev/gemseo.git@40ded75da1aadb2ee5ab0a4e890ed6994ac2f35b
+gemseo @ git+https://gitlab.com/gemseo/dev/gemseo.git@233ad69ae7a73dbc1fe722ba96649297458f0770
     # via
     #   -c requirements/test-constraints.in
     #   gemseo-mma (pyproject.toml)
