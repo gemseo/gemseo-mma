@@ -30,7 +30,7 @@ fastjsonschema==2.21.1
     # via gemseo
 fonttools==4.56.0
     # via matplotlib
-gemseo @ git+https://gitlab.com/gemseo/dev/gemseo.git@503283a7ce2decb93ac702ec4f5400cca18a2914
+gemseo @ git+https://gitlab.com/gemseo/dev/gemseo.git@0c9a3544f1d90c442f890ff7eafc35ab7b3c9ce3
     # via
     #   -c requirements/test-constraints.in
     #   gemseo-mma (pyproject.toml)
@@ -153,7 +153,7 @@ typing-extensions==4.12.2
     #   gemseo
     #   pydantic
     #   pydantic-core
-tzdata==2025.1
+tzdata==2025.2
     # via pandas
 urllib3==2.3.0
     # via requests
