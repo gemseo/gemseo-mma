@@ -36,9 +36,9 @@ eval-type-backport==0.2.2
     # via gemseo
 fastjsonschema==2.21.1
     # via gemseo
-fonttools==4.58.1
+fonttools==4.58.2
     # via matplotlib
-gemseo @ git+https://gitlab.com/gemseo/dev/gemseo.git@ca573c123a81602633e465d07062381c3afd36ad
+gemseo @ git+https://gitlab.com/gemseo/dev/gemseo.git@3e4de7aaa3adf185ebe51c29941f2ed1ab2dcb89
     # via
     #   -c requirements/test-constraints.in
     #   gemseo-mma (pyproject.toml)
@@ -252,7 +252,7 @@ pyyaml-env-tag==1.1
     # via
     #   mike
     #   mkdocs
-requests==2.32.3
+requests==2.32.4
     # via
     #   gemseo
     #   mkdocs-bibtex
@@ -315,7 +315,7 @@ xdsmjs==2.0.0
     # via gemseo
 xxhash==3.5.0
     # via gemseo
-zipp==3.22.0
+zipp==3.23.0
     # via
     #   importlib-metadata
     #   importlib-resources
