@@ -2,50 +2,50 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://gemseo.gitlab.io/gemseo-mma/latest/</loc>
-         <lastmod>2025-07-10</lastmod>
+         <lastmod>2025-07-11</lastmod>
     </url>
     <url>
          <loc>https://gemseo.gitlab.io/gemseo-mma/latest/changelog/</loc>
-         <lastmod>2025-07-10</lastmod>
+         <lastmod>2025-07-11</lastmod>
     </url>
     <url>
          <loc>https://gemseo.gitlab.io/gemseo-mma/latest/credits/</loc>
-         <lastmod>2025-07-10</lastmod>
+         <lastmod>2025-07-11</lastmod>
     </url>
     <url>
          <loc>https://gemseo.gitlab.io/gemseo-mma/latest/licenses/</loc>
-         <lastmod>2025-07-10</lastmod>
+         <lastmod>2025-07-11</lastmod>
     </url>
     <url>
          <loc>https://gemseo.gitlab.io/gemseo-mma/latest/reference/SUMMARY/</loc>
-         <lastmod>2025-07-10</lastmod>
+         <lastmod>2025-07-11</lastmod>
     </url>
     <url>
          <loc>https://gemseo.gitlab.io/gemseo-mma/latest/reference/gemseo_mma/</loc>
-         <lastmod>2025-07-10</lastmod>
+         <lastmod>2025-07-11</lastmod>
     </url>
     <url>
          <loc>https://gemseo.gitlab.io/gemseo-mma/latest/reference/gemseo_mma/opt/</loc>
-         <lastmod>2025-07-10</lastmod>
+         <lastmod>2025-07-11</lastmod>
     </url>
     <url>
          <loc>https://gemseo.gitlab.io/gemseo-mma/latest/reference/gemseo_mma/opt/mma/</loc>
-         <lastmod>2025-07-10</lastmod>
+         <lastmod>2025-07-11</lastmod>
     </url>
     <url>
          <loc>https://gemseo.gitlab.io/gemseo-mma/latest/reference/gemseo_mma/opt/core/</loc>
-         <lastmod>2025-07-10</lastmod>
+         <lastmod>2025-07-11</lastmod>
     </url>
     <url>
          <loc>https://gemseo.gitlab.io/gemseo-mma/latest/reference/gemseo_mma/opt/core/mma/</loc>
-         <lastmod>2025-07-10</lastmod>
+         <lastmod>2025-07-11</lastmod>
     </url>
     <url>
          <loc>https://gemseo.gitlab.io/gemseo-mma/latest/reference/gemseo_mma/opt/core/mma_optimizer/</loc>
-         <lastmod>2025-07-10</lastmod>
+         <lastmod>2025-07-11</lastmod>
     </url>
     <url>
          <loc>https://gemseo.gitlab.io/gemseo-mma/latest/user_guide/</loc>
-         <lastmod>2025-07-10</lastmod>
+         <lastmod>2025-07-11</lastmod>
     </url>
 </urlset>
