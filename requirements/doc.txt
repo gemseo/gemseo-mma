@@ -46,7 +46,7 @@ ghp-import==2.1.0
     # via mkdocs
 graphviz==0.21
     # via gemseo
-griffe==1.11.0
+griffe==1.11.1
     # via
     #   griffe-inherited-docstrings
     #   mkdocstrings-python
