@@ -28,7 +28,7 @@ execnet==2.1.1
     # via pytest-xdist
 fastjsonschema==2.21.1
     # via gemseo
-fonttools==4.59.1
+fonttools==4.59.2
     # via matplotlib
 gemseo @ git+https://gitlab.com/gemseo/dev/gemseo.git@2a54e805b5a7327efbba45440b6c19e0828d1ace
     # via
@@ -46,7 +46,7 @@ iniconfig==2.1.0
     # via pytest
 jinja2==3.1.6
     # via gemseo
-joblib==1.5.1
+joblib==1.5.2
     # via scikit-learn
 kiwisolver==1.4.9
     # via matplotlib
