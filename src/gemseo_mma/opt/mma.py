@@ -24,14 +24,14 @@ from gemseo.algos.opt.base_optimization_library import BaseOptimizationLibrary
 from gemseo.algos.opt.base_optimization_library import OptimizationAlgorithmDescription
 from gemseo.algos.optimization_result import OptimizationResult
 
-from gemseo_mma.opt._mma_settings import MMASvanbergSettings
 from gemseo_mma.opt.core.mma_optimizer import MMAOptimizer
+from gemseo_mma.opt.mma_settings import MMASvanberg_Settings
 
 if TYPE_CHECKING:
     from gemseo.algos.optimization_problem import OptimizationProblem
 
 
-class MMASvanberg(BaseOptimizationLibrary):
+class MMASvanberg(BaseOptimizationLibrary[MMASvanberg_Settings]):
     """Svanberg Method of Moving Asymptotes optimization library."""
 
     ALGORITHM_INFOS: ClassVar[dict[str, Any]] = {
@@ -40,25 +40,17 @@ class MMASvanberg(BaseOptimizationLibrary):
             internal_algorithm_name="MMA",
             library_name="MMA",
             description="The Method of Moving Asymptotes",
-            Settings=MMASvanbergSettings,
+            Settings=MMASvanberg_Settings,
             require_gradient=True,
             handle_inequality_constraints=True,
         )
     }
 
     def _run(
-        self, problem: OptimizationProblem, **options: bool | float
+        self,
+        problem: OptimizationProblem,
     ) -> tuple[Any, Any]:
-        """Runs the algorithm, to be overloaded by subclasses.
-
-        Args:
-            **options: The options dict for the algorithm,
-                see associated MMA_options.json file.
-
-        Returns:
-            The OptimizationResult object.
-        """
-        return MMAOptimizer(problem).optimize(**options)
+        return MMAOptimizer(problem).optimize(**self._settings.model_dump())
 
     def _get_result(
         self,
