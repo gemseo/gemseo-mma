@@ -26,6 +26,14 @@ The format is based on
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## Unreleased
+
+## Changed
+
+- The `MMASvanbergSettings` class was moved to `gemseo_mma.opt.settings.mma_settings` and renamed
+  to `MMASvanberg_Settings` in order to follow GEMSEO conventions.
+
+
 ## Version 3.0.0 (November 2024)
 
 ### Added

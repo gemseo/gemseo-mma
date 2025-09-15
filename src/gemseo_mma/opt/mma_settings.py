@@ -35,8 +35,10 @@ if TYPE_CHECKING:
 copy_field_opt = partial(copy_field, model=BaseOptimizerSettings)
 
 
-class MMASvanbergSettings(BaseOptimizerSettings, BaseGradientBasedAlgorithmSettings):
+class MMASvanberg_Settings(BaseOptimizerSettings, BaseGradientBasedAlgorithmSettings):  # noqa: N801
     """The settings for the MMA Svanberg algorithm."""
+
+    _TARGET_CLASS_NAME = "MMA"
 
     ftol_abs: NonNegativeFloat = copy_field_opt("ftol_abs", default=1e-14)
 

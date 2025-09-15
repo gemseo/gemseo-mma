@@ -25,6 +25,7 @@ from numpy import ones
 
 from gemseo_mma.opt.core.mma_optimizer import MMAOptimizer
 from gemseo_mma.opt.mma import MMASvanberg
+from gemseo_mma.opt.mma_settings import MMASvanberg_Settings
 
 
 @pytest.fixture(params=[0.0, 0.25, 0.1, 1.0])
@@ -178,8 +179,7 @@ parametrized_algo_ineq = pytest.mark.parametrize("algo_ineq", ["MMA"])
 def test_execution_with_scenario(analytical_test_2d_ineq, options, algo_ineq):
     """Test for optimization scenario execution using MMA solver."""
     opt = options.copy()
-    opt["algo_name"] = algo_ineq
-    analytical_test_2d_ineq.execute(**opt)
+    analytical_test_2d_ineq.execute(MMASvanberg_Settings(**opt))
     problem = analytical_test_2d_ineq.formulation.optimization_problem
     assert pytest.approx(problem.solution.x_opt, abs=1e-2) == array([0.5, 0.5])
 
