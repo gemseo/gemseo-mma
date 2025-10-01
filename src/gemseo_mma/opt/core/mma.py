@@ -28,11 +28,15 @@ This is the python version of the code written by Arjen Deetman.
 
 from __future__ import annotations
 
+from typing import TYPE_CHECKING
+
 import numpy as np
-from numpy import ndarray
 from numpy.linalg import lstsq
 from scipy.linalg import solve  # or use numpy: from numpy.linalg import solve
 from scipy.sparse import diags  # or use numpy: from numpy import diag as diags
+
+if TYPE_CHECKING:
+    from numpy import ndarray
 
 
 # Function for the MMA sub problem
