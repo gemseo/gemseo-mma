@@ -26,13 +26,20 @@ The format is based on
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## Unreleased
+## Version 4.0.0 (October 2025)
 
-## Changed
+### Added
+
+- Support for Python 3.13.
+
+### Removed
+
+- Support for Python 3.9.
+
+### Changed
 
 - The `MMASvanbergSettings` class was moved to `gemseo_mma.opt.settings.mma_settings` and renamed
   to `MMASvanberg_Settings` in order to follow GEMSEO conventions.
-
 
 ## Version 3.0.0 (November 2024)
 
