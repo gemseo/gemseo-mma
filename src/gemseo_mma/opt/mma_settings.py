@@ -25,7 +25,7 @@ from gemseo.algos.opt.base_gradient_based_algorithm_settings import (
 from gemseo.algos.opt.base_optimizer_settings import BaseOptimizerSettings
 from gemseo.utils.pydantic import copy_field
 from pydantic import Field
-from pydantic import NonNegativeFloat  # noqa: TCH002
+from pydantic import NonNegativeFloat  # noqa: TC002
 from pydantic import model_validator
 
 if TYPE_CHECKING:
@@ -35,8 +35,10 @@ if TYPE_CHECKING:
 copy_field_opt = partial(copy_field, model=BaseOptimizerSettings)
 
 
-class MMASvanbergSettings(BaseOptimizerSettings, BaseGradientBasedAlgorithmSettings):
+class MMASvanberg_Settings(BaseOptimizerSettings, BaseGradientBasedAlgorithmSettings):  # noqa: N801
     """The settings for the MMA Svanberg algorithm."""
+
+    _TARGET_CLASS_NAME = "MMA"
 
     ftol_abs: NonNegativeFloat = copy_field_opt("ftol_abs", default=1e-14)
 

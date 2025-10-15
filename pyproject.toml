@@ -4,37 +4,39 @@ authors = [
     {name = "Simone Coniglio", email = "contact@gemseo.org"}
 ]
 description = "A gemseo wrapper of Python version of Method of Moving Asymptothes in the implementation of Arjen Deetman."
-license = {text = "GNU General Public License v3"}
+readme = "README.md"
+license = "GPL-3.0"
+license-files = ["LICENSE.txt"]
 classifiers = [
-    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
     "Intended Audience :: Science/Research",
     "Topic :: Scientific/Engineering",
     "Operating System :: POSIX :: Linux",
     "Operating System :: MacOS",
     "Operating System :: Microsoft :: Windows",
     "Programming Language :: Python :: 3 :: Only",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
 ]
 dynamic = ["version"]
-requires-python = ">=3.9, <3.13"
+requires-python = ">=3.10, <3.14"
 dependencies = [
-    "gemseo[all] >=6,<7",
+    "gemseo[all] >=6.3,<7",
     "numpy",
     "scipy",
 ]
 
-[project.optional-dependencies]
-test = [
-    "covdefaults",
-    "pytest <9",
-    "pytest-cov",
-    "pytest-xdist",
+[dependency-groups]
+dev = [
+    "covdefaults >=2",
+    "pytest >=7,<9",
+    "pytest-cov >=5",
+    "pytest-xdist >=3",
 ]
 doc = [
     "black",
+    "griffe-fieldz",
     "griffe-inherited-docstrings",
     "markdown-exec[ansi]",
     "mike",
@@ -49,16 +51,12 @@ doc = [
 ]
 
 [project.urls]
-Homepage = "https://gitlab.com/gemseo"
+Homepage = "https://gemseo.org"
 Source = "https://gitlab.com/gemseo/dev/gemseo-mma"
-Tracker = "https://gitlab.com/gemseo/dev/gemseo-mma/-/issues"
-
-[project.readme]
-file = "README.md"
-content-type = "text/markdown"
+Issues = "https://gitlab.com/gemseo/dev/gemseo-mma/-/issues"
 
 [project.entry-points]
-gemseo_plugins = { gemseo-mma = "gemseo_mma"}
+gemseo_plugins = { gemseo-mma = "gemseo_mma" }
 
 [build-system]
 requires = [
@@ -68,9 +66,3 @@ requires = [
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools_scm]
-
-[tool.setuptools]
-license-files = [
-    "LICENSE.txt",
-    "CREDITS.md",
-]
