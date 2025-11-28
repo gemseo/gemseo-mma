@@ -1193,7 +1193,7 @@
 
 
 <a href="#gemseo_mma.opt.core.mma_optimizer.MMAOptimizer" class="headerlink" title="Permanent link">&para;</a></h4>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">MMAOptimizer</span><span class="p">(</span><span class="n">problem</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="gemseo.algos.optimization_problem.OptimizationProblem" href="https://gemseo.readthedocs.io/en/stable/modules/gemseo.algos.optimization_problem.html#gemseo.algos.optimization_problem.OptimizationProblem">OptimizationProblem</a></span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">MMAOptimizer</span><span class="p">(</span><span class="n">problem</span><span class="p">:</span> <span class="n"><span title="gemseo.algos.optimization_problem.OptimizationProblem">OptimizationProblem</span></span><span class="p">)</span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
@@ -1283,7 +1283,7 @@ smaller values of the <code>max_optimization_step</code>, <code>max_asymptote_di
 
 
 <a href="#gemseo_mma.opt.core.mma_optimizer.MMAOptimizer.iterate" class="headerlink" title="Permanent link">&para;</a></h6>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">iterate</span><span class="p">(</span><span class="n">x0</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">]</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">iterate</span><span class="p">(</span><span class="n">x0</span><span class="p">:</span> <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="tuple">tuple</span></span><span class="p">[</span><span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span> <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">]</span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
@@ -1295,7 +1295,7 @@ smaller values of the <code>max_optimization_step</code>, <code>max_asymptote_di
     <ul>
         <li class="doc-section-item field-body">
             <b><code>x0</code></b>
-              (<code><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></code>)
+              (<code><span title="numpy.ndarray">ndarray</span></code>)
           –
           <div class="doc-md-description">
             <p>The starting guess design point.</p>
@@ -1307,7 +1307,7 @@ smaller values of the <code>max_optimization_step</code>, <code>max_asymptote_di
 <p><span class="doc-section-title">Returns:</span></p>
     <ul>
         <li class="doc-section-item field-body">
-              <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a>[<a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a>, <a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a>]</code>
+              <code><span title="tuple">tuple</span>[<span title="numpy.ndarray">ndarray</span>, <span title="numpy.ndarray">ndarray</span>]</code>
           –
           <div class="doc-md-description">
             <p>The optimum design point and objective value.</p>
@@ -1647,7 +1647,7 @@ smaller values of the <code>max_optimization_step</code>, <code>max_asymptote_di
 
 
 <a href="#gemseo_mma.opt.core.mma_optimizer.MMAOptimizer.optimize" class="headerlink" title="Permanent link">&para;</a></h6>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">optimize</span><span class="p">(</span><span class="o">**</span><span class="n">options</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></span> <span class="o">|</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></span><span class="p">]</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">optimize</span><span class="p">(</span><span class="o">**</span><span class="n">options</span><span class="p">:</span> <span class="n"><span title="bool">bool</span></span> <span class="o">|</span> <span class="n"><span title="float">float</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="tuple">tuple</span></span><span class="p">[</span><span class="n"><span title="str">str</span></span><span class="p">,</span> <span class="n"><span title="int">int</span></span><span class="p">]</span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
@@ -1659,7 +1659,7 @@ smaller values of the <code>max_optimization_step</code>, <code>max_asymptote_di
     <ul>
         <li class="doc-section-item field-body">
             <b><code>**options</code></b>
-              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a> | <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#float">float</a></code>, default:
+              (<code><span title="bool">bool</span> | <span title="float">float</span></code>, default:
                   <code>{}</code>
 )
           –
@@ -1673,7 +1673,7 @@ smaller values of the <code>max_optimization_step</code>, <code>max_asymptote_di
 <p><span class="doc-section-title">Returns:</span></p>
     <ul>
         <li class="doc-section-item field-body">
-              <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a>]</code>
+              <code><span title="tuple">tuple</span>[<span title="str">str</span>, <span title="int">int</span>]</code>
           –
           <div class="doc-md-description">
             <p>The optimization solver message and final status.</p>
