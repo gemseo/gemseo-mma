@@ -25,6 +25,7 @@ from numpy import ones
 
 from gemseo_mma.opt.core.mma_optimizer import MMAOptimizer
 from gemseo_mma.opt.mma import MMASvanberg
+from gemseo_mma.opt.mma_settings import MMA_Settings
 from gemseo_mma.opt.mma_settings import MMASvanberg_Settings
 
 
@@ -179,7 +180,7 @@ parametrized_algo_ineq = pytest.mark.parametrize("algo_ineq", ["MMA"])
 def test_execution_with_scenario(analytical_test_2d_ineq, options, algo_ineq):
     """Test for optimization scenario execution using MMA solver."""
     opt = options.copy()
-    analytical_test_2d_ineq.execute(MMASvanberg_Settings(**opt))
+    analytical_test_2d_ineq.execute(MMA_Settings(**opt))
     problem = analytical_test_2d_ineq.formulation.problem
     assert pytest.approx(problem.solution.x_opt, abs=1e-2) == array([0.5, 0.5])
 
@@ -204,3 +205,13 @@ def test_get_optimum_from_database(analytical_test_2d_ineq):
     lib = MMASvanberg("MMA")
     lib._problem = analytical_test_2d_ineq.formulation.problem
     assert isinstance(lib._get_result(lib._problem, None, None), OptimizationResult)
+
+
+def test_settings_target_class_name():
+    """Check that the settings target the MMA algorithm."""
+    assert MMA_Settings().target_class_name == "MMA"
+
+
+def test_deprecated_settings_alias():
+    """Check that the deprecated settings name is an alias."""
+    assert MMASvanberg_Settings is MMA_Settings

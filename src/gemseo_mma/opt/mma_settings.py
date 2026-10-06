@@ -35,11 +35,8 @@ if TYPE_CHECKING:
 copy_field_opt = partial(copy_field, model=BaseOptimizerSettings)
 
 
-class MMASvanberg_Settings(BaseOptimizerSettings, BaseGradientBasedAlgorithmSettings):  # noqa: N801
+class MMA_Settings(BaseOptimizerSettings, BaseGradientBasedAlgorithmSettings):  # noqa: N801
     """The settings for the MMA Svanberg algorithm."""
-
-    # TODO(bump-gemseo): BaseSettings._TARGET_CLASS_NAME was removed; see the GEMSEO 7 changelog.  # noqa: E501
-    _TARGET_CLASS_NAME = "MMA"
 
     ftol_abs: NonNegativeFloat = copy_field_opt("ftol_abs", default=1e-14)
 
@@ -122,3 +119,7 @@ class MMASvanberg_Settings(BaseOptimizerSettings, BaseGradientBasedAlgorithmSett
                 self.ftol_rel, self.ftol_abs, self.xtol_rel, self.xtol_abs
             )
         return self
+
+
+MMASvanberg_Settings = MMA_Settings
+"""Deprecated alias of [MMA_Settings][gemseo_mma.opt.mma_settings.MMA_Settings]."""
