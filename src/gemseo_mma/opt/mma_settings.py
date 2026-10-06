@@ -113,12 +113,12 @@ class MMASvanberg_Settings(BaseOptimizerSettings, BaseGradientBasedAlgorithmSett
         Modify the other convergence values if needed.
         """
         if self.conv_tol is not None:
-            self.ftol_rel = self.conv_tol
-            self.ftol_abs = self.conv_tol
-            self.xtol_rel = self.conv_tol
-            self.xtol_abs = self.conv_tol
+            self.__dict__["ftol_rel"] = self.conv_tol
+            self.__dict__["ftol_abs"] = self.conv_tol
+            self.__dict__["xtol_rel"] = self.conv_tol
+            self.__dict__["xtol_abs"] = self.conv_tol
         else:
-            self.conv_tol = min(
+            self.__dict__["conv_tol"] = min(
                 self.ftol_rel, self.ftol_abs, self.xtol_rel, self.xtol_abs
             )
         return self
