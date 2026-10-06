@@ -109,13 +109,13 @@ class MMA_Settings(BaseOptimizerSettings, BaseGradientBasedAlgorithmSettings):  
 
         Modify the other convergence values if needed.
         """
+        # Write to __dict__ to bypass the assignment validation,
+        # which would call this validator again.
+        tolerance_names = ("ftol_rel", "ftol_abs", "xtol_rel", "xtol_abs")
         if self.conv_tol is not None:
-            self.__dict__["ftol_rel"] = self.conv_tol
-            self.__dict__["ftol_abs"] = self.conv_tol
-            self.__dict__["xtol_rel"] = self.conv_tol
-            self.__dict__["xtol_abs"] = self.conv_tol
+            self.__dict__.update(dict.fromkeys(tolerance_names, self.conv_tol))
         else:
             self.__dict__["conv_tol"] = min(
-                self.ftol_rel, self.ftol_abs, self.xtol_rel, self.xtol_abs
+                getattr(self, name) for name in tolerance_names
             )
         return self
