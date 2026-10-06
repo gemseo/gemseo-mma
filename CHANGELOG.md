@@ -33,10 +33,6 @@ and this project adheres to
 - The `MMASvanberg_Settings` class was renamed to `MMA_Settings`,
   as GEMSEO 7 derives the algorithm name from the settings class name.
 
-### Deprecated
-
-- `MMASvanberg_Settings` is a deprecated alias of `MMA_Settings`.
-
 ## Version 4.0.0 (October 2025)
 
 ### Added

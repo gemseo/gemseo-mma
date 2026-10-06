@@ -119,7 +119,3 @@ class MMA_Settings(BaseOptimizerSettings, BaseGradientBasedAlgorithmSettings):  
                 self.ftol_rel, self.ftol_abs, self.xtol_rel, self.xtol_abs
             )
         return self
-
-
-MMASvanberg_Settings = MMA_Settings
-"""Deprecated alias of [MMA_Settings][gemseo_mma.opt.mma_settings.MMA_Settings]."""
