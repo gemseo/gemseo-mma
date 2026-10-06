@@ -18,8 +18,8 @@ from __future__ import annotations
 import pytest
 from gemseo import create_discipline
 from gemseo import create_scenario
-from gemseo.algos.design_space import DesignSpace
-from gemseo.algos.optimization_result import OptimizationResult
+from gemseo.space import DesignSpace
+from gemseo.optimization.result import OptimizationResult
 from numpy import array
 from numpy import ones
 
@@ -179,15 +179,16 @@ parametrized_algo_ineq = pytest.mark.parametrize("algo_ineq", ["MMA"])
 def test_execution_with_scenario(analytical_test_2d_ineq, options, algo_ineq):
     """Test for optimization scenario execution using MMA solver."""
     opt = options.copy()
+    # TODO(bump-gemseo): **kwargs may contain: eval_obs_jac -> evaluate_observable_jacobian, max_design_space_dimension_to_log -> max_input_space_dimension_to_log, skip_int_check (removed)  # noqa: E501
     analytical_test_2d_ineq.execute(MMASvanberg_Settings(**opt))
-    problem = analytical_test_2d_ineq.formulation.optimization_problem
+    problem = analytical_test_2d_ineq.formulation.problem
     assert pytest.approx(problem.solution.x_opt, abs=1e-2) == array([0.5, 0.5])
 
 
 @parametrized_options
 def test_direct_execution(analytical_test_2d_ineq, options):
     """Test for optimization problem execution using MMA solver."""
-    problem = analytical_test_2d_ineq.formulation.optimization_problem
+    problem = analytical_test_2d_ineq.formulation.problem
     optimizer = MMAOptimizer(problem)
     optimizer.optimize(**options)
     for key in options:
@@ -202,5 +203,5 @@ def test_direct_execution(analytical_test_2d_ineq, options):
 def test_get_optimum_from_database(analytical_test_2d_ineq):
     """Test for get_optimum_from_database call before opt problem resolution."""
     lib = MMASvanberg("MMA")
-    lib._problem = analytical_test_2d_ineq.formulation.optimization_problem
+    lib._problem = analytical_test_2d_ineq.formulation.problem
     assert isinstance(lib._get_result(lib._problem, None, None), OptimizationResult)
