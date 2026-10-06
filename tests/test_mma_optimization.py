@@ -179,7 +179,6 @@ parametrized_algo_ineq = pytest.mark.parametrize("algo_ineq", ["MMA"])
 def test_execution_with_scenario(analytical_test_2d_ineq, options, algo_ineq):
     """Test for optimization scenario execution using MMA solver."""
     opt = options.copy()
-    # TODO(bump-gemseo): **kwargs may contain: eval_obs_jac -> evaluate_observable_jacobian, max_design_space_dimension_to_log -> max_input_space_dimension_to_log, skip_int_check (removed)  # noqa: E501
     analytical_test_2d_ineq.execute(MMASvanberg_Settings(**opt))
     problem = analytical_test_2d_ineq.formulation.problem
     assert pytest.approx(problem.solution.x_opt, abs=1e-2) == array([0.5, 0.5])
