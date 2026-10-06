@@ -26,7 +26,6 @@ from numpy import ones
 from gemseo_mma.opt.core.mma_optimizer import MMAOptimizer
 from gemseo_mma.opt.mma import MMASvanberg
 from gemseo_mma.opt.mma_settings import MMA_Settings
-from gemseo_mma.opt.mma_settings import MMASvanberg_Settings
 
 
 @pytest.fixture(params=[0.0, 0.25, 0.1, 1.0])
@@ -210,8 +209,3 @@ def test_get_optimum_from_database(analytical_test_2d_ineq):
 def test_settings_target_class_name():
     """Check that the settings target the MMA algorithm."""
     assert MMA_Settings().target_class_name == "MMA"
-
-
-def test_deprecated_settings_alias():
-    """Check that the deprecated settings name is an alias."""
-    assert MMASvanberg_Settings is MMA_Settings
