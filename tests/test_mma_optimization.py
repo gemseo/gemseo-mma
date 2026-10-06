@@ -18,8 +18,8 @@ from __future__ import annotations
 import pytest
 from gemseo import create_discipline
 from gemseo import create_scenario
-from gemseo.space import DesignSpace
 from gemseo.optimization.result import OptimizationResult
+from gemseo.space import DesignSpace
 from numpy import array
 from numpy import ones
 
