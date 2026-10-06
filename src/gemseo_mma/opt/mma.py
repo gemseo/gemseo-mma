@@ -21,7 +21,9 @@ from typing import Any
 from typing import ClassVar
 
 from gemseo.optimization.core.base_optimization_library import BaseOptimizationLibrary
-from gemseo.optimization.core.base_optimization_library import OptimizationAlgorithmDescription
+from gemseo.optimization.core.base_optimization_library import (
+    OptimizationAlgorithmDescription,
+)
 from gemseo.optimization.result import OptimizationResult
 
 from gemseo_mma.opt.core.mma_optimizer import MMAOptimizer
@@ -42,7 +44,8 @@ class MMASvanberg(BaseOptimizationLibrary[MMASvanberg_Settings]):
             description="The Method of Moving Asymptotes",
             settings_class=MMASvanberg_Settings,
             require_gradient=True,
-            handle_inequality_constraints=True)
+            handle_inequality_constraints=True,
+        )
     }
 
     def _run(
