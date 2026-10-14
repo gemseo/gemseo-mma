@@ -312,7 +312,7 @@ class MMAOptimizer:
             )
 
         if self.__normalize_design_space:
-            xopt = self.__problem.design_space.unnormalize_vect(xval.flatten())
+            xopt = self.__problem.design_space.denormalize_vect(xval.flatten())
         else:
             xopt = xval.flatten()
 
