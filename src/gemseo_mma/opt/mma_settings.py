@@ -29,7 +29,7 @@ from pydantic import NonNegativeFloat  # noqa: TC002
 from pydantic import model_validator
 
 if TYPE_CHECKING:
-    from typing_extensions import Self
+    from typing import Self
 
 
 copy_field_opt = partial(copy_field, model=BaseOptimizerSettings)
