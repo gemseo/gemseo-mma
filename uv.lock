@@ -304,7 +304,7 @@ resolution-markers = [
     "python_full_version < '3.12'",
 ]
 dependencies = [
-    { name = "numpy", marker = "python_full_version < '3.12'" },
+    { name = "numpy" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/58/01/1253e6698a07380cd31a736d248a3f2a50a7c88779a1813da27503cadc2a/contourpy-1.3.3.tar.gz", hash = "sha256:083e12155b210502d0bca491432bb04d56dc3432f95a979b429f2848c3dbe880", size = 13466174, upload-time = "2025-07-26T12:03:12.549Z" }
 wheels = [
@@ -389,7 +389,7 @@ resolution-markers = [
     "python_full_version >= '3.12'",
 ]
 dependencies = [
-    { name = "numpy", marker = "python_full_version >= '3.12'" },
+    { name = "numpy" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/83/5a/a55177dd22553a277388e8a1b3220e92de91bacb28356cdc73caa240121d/contourpy-1.4.0.tar.gz", hash = "sha256:20156f5a1ac4f8ce02656e39a61e82164a3d359796dc8026f75b062783d500e1", size = 13323726, upload-time = "2026-09-11T19:05:05.808Z" }
 wheels = [
@@ -683,8 +683,8 @@ wheels = [
 
 [[package]]
 name = "gemseo"
-version = "6.3.4.dev1262+g64eed1eb1"
-source = { git = "https://gitlab.com/gemseo/dev/gemseo.git?branch=develop#64eed1eb158964eb2f9f72fa55cb078c06338f78" }
+version = "7.0.0rc1.dev87+gb18529b1e"
+source = { git = "https://gitlab.com/gemseo/dev/gemseo.git?branch=develop#b18529b1e9c83f83e409340f4792770d576c2c77" }
 dependencies = [
     { name = "docstring-inheritance" },
     { name = "fastjsonschema" },

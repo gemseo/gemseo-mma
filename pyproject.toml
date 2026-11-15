@@ -22,7 +22,7 @@ classifiers = [
 dynamic = ["version"]
 requires-python = ">=3.11, <3.15"
 dependencies = [
-    "gemseo[all] >=6.3,<7",
+    "gemseo[all] >=7.0.0rc0,<8",
     "numpy",
     "scipy",
 ]
