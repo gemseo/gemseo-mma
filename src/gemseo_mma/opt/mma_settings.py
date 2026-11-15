@@ -115,8 +115,4 @@ class MMA_Settings(BaseOptimizerSettings, BaseGradientBasedAlgorithmSettings):  
         tolerance_names = ("ftol_rel", "ftol_abs", "xtol_rel", "xtol_abs")
         if self.conv_tol is not None:
             self.__dict__.update(dict.fromkeys(tolerance_names, self.conv_tol))
-        else:
-            self.__dict__["conv_tol"] = min(
-                getattr(self, name) for name in tolerance_names
-            )
         return self

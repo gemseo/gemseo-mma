@@ -209,3 +209,26 @@ def test_get_optimum_from_database(analytical_test_2d_ineq):
 def test_settings_target_class_name():
     """Check that the settings target the MMA algorithm."""
     assert MMA_Settings().target_class_name == "MMA"
+
+
+@pytest.mark.parametrize(
+    "assign", [lambda s: setattr(s, "max_iter", 10), lambda s: None]
+)
+def test_settings_tolerances_after_assignment(assign):
+    """Check that an assignment keeps the tolerances when conv_tol is not set."""
+    settings = MMA_Settings(ftol_rel=1e-3)
+    assign(settings)
+    settings.xtol_rel = 1e-4
+    assert settings.conv_tol is None
+    assert settings.ftol_rel == 1e-3
+    assert settings.xtol_rel == 1e-4
+    settings = MMA_Settings(**settings.model_dump())
+    assert settings.ftol_rel == 1e-3
+    assert settings.xtol_rel == 1e-4
+
+
+def test_settings_conv_tol():
+    """Check that conv_tol sets the four tolerances."""
+    settings = MMA_Settings(conv_tol=1e-5)
+    assert settings.ftol_rel == settings.ftol_abs == 1e-5
+    assert settings.xtol_rel == settings.xtol_abs == 1e-5
