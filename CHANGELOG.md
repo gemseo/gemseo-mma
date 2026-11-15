@@ -28,10 +28,19 @@ and this project adheres to
 
 ## Unreleased
 
+### Added
+
+- Support for Python 3.14.
+
 ### Changed
 
+- GEMSEO 7 is required.
 - The `MMASvanberg_Settings` class was renamed to `MMA_Settings`,
   as GEMSEO 7 derives the algorithm name from the settings class name.
+
+### Removed
+
+- Support for Python 3.10.
 
 ## Version 4.0.0 (October 2025)
 
