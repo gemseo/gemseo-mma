@@ -26,7 +26,7 @@ from gemseo_mma.opt.core.mma import compute_kkt_residual_on_local_approximation
 from gemseo_mma.opt.core.mma import solve_mma_local_approximation_problem
 
 if TYPE_CHECKING:
-    from gemseo.algos.optimization_problem import OptimizationProblem
+    from gemseo.optimization import OptimizationProblem
     from numpy import ndarray
 
 LOGGER = logging.getLogger(__name__)
@@ -312,7 +312,7 @@ class MMAOptimizer:
             )
 
         if self.__normalize_design_space:
-            xopt = self.__problem.design_space.unnormalize_vect(xval.flatten())
+            xopt = self.__problem.design_space.denormalize_vect(xval.flatten())
         else:
             xopt = xval.flatten()
 

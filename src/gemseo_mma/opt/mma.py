@@ -20,18 +20,20 @@ from typing import TYPE_CHECKING
 from typing import Any
 from typing import ClassVar
 
-from gemseo.algos.opt.base_optimization_library import BaseOptimizationLibrary
-from gemseo.algos.opt.base_optimization_library import OptimizationAlgorithmDescription
-from gemseo.algos.optimization_result import OptimizationResult
+from gemseo.optimization.core.base_optimization_library import BaseOptimizationLibrary
+from gemseo.optimization.core.base_optimization_library import (
+    OptimizationAlgorithmDescription,
+)
+from gemseo.optimization.result import OptimizationResult
 
 from gemseo_mma.opt.core.mma_optimizer import MMAOptimizer
-from gemseo_mma.opt.mma_settings import MMASvanberg_Settings
+from gemseo_mma.opt.mma_settings import MMA_Settings
 
 if TYPE_CHECKING:
-    from gemseo.algos.optimization_problem import OptimizationProblem
+    from gemseo.optimization import OptimizationProblem
 
 
-class MMASvanberg(BaseOptimizationLibrary[MMASvanberg_Settings]):
+class MMASvanberg(BaseOptimizationLibrary[MMA_Settings]):
     """Svanberg Method of Moving Asymptotes optimization library."""
 
     ALGORITHM_INFOS: ClassVar[dict[str, Any]] = {
@@ -40,7 +42,7 @@ class MMASvanberg(BaseOptimizationLibrary[MMASvanberg_Settings]):
             internal_algorithm_name="MMA",
             library_name="MMA",
             description="The Method of Moving Asymptotes",
-            Settings=MMASvanberg_Settings,
+            settings_class=MMA_Settings,
             require_gradient=True,
             handle_inequality_constraints=True,
         )

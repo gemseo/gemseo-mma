@@ -26,6 +26,25 @@ The format is based on
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## Unreleased
+
+### Added
+
+- Support for Python 3.14.
+
+### Changed
+
+- GEMSEO 7 is required.
+- The `MMASvanberg_Settings` class was renamed to `MMA_Settings`,
+  as GEMSEO 7 derives the algorithm name from the settings class name.
+- `MMA_Settings.conv_tol` is no longer set to the smallest of
+  `ftol_rel`, `ftol_abs`, `xtol_rel` and `xtol_abs` when it is not given;
+  it stays `None`.
+
+### Removed
+
+- Support for Python 3.10.
+
 ## Version 4.0.0 (October 2025)
 
 ### Added

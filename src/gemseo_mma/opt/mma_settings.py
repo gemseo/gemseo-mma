@@ -19,26 +19,24 @@ from __future__ import annotations
 from functools import partial
 from typing import TYPE_CHECKING
 
-from gemseo.algos.opt.base_gradient_based_algorithm_settings import (
+from gemseo.optimization.core.base_gradient_based_algorithm_settings import (
     BaseGradientBasedAlgorithmSettings,
 )
-from gemseo.algos.opt.base_optimizer_settings import BaseOptimizerSettings
-from gemseo.utils.pydantic import copy_field
+from gemseo.optimization.core.base_optimizer_settings import BaseOptimizerSettings
+from gemseo.util.pydantic import copy_field
 from pydantic import Field
 from pydantic import NonNegativeFloat  # noqa: TC002
 from pydantic import model_validator
 
 if TYPE_CHECKING:
-    from typing_extensions import Self
+    from typing import Self
 
 
 copy_field_opt = partial(copy_field, model=BaseOptimizerSettings)
 
 
-class MMASvanberg_Settings(BaseOptimizerSettings, BaseGradientBasedAlgorithmSettings):  # noqa: N801
+class MMA_Settings(BaseOptimizerSettings, BaseGradientBasedAlgorithmSettings):  # noqa: N801
     """The settings for the MMA Svanberg algorithm."""
-
-    _TARGET_CLASS_NAME = "MMA"
 
     ftol_abs: NonNegativeFloat = copy_field_opt("ftol_abs", default=1e-14)
 
@@ -107,17 +105,14 @@ class MMASvanberg_Settings(BaseOptimizerSettings, BaseGradientBasedAlgorithmSett
 
     @model_validator(mode="after")
     def __check_tolerances(self) -> Self:
-        """Check if a conv_tol was provided.
+        """Set the four tolerances to `conv_tol` when it is given.
 
-        Modify the other convergence values if needed.
+        Returns:
+            The settings.
         """
+        # Write to __dict__ to bypass the assignment validation,
+        # which would call this validator again.
+        tolerance_names = ("ftol_rel", "ftol_abs", "xtol_rel", "xtol_abs")
         if self.conv_tol is not None:
-            self.ftol_rel = self.conv_tol
-            self.ftol_abs = self.conv_tol
-            self.xtol_rel = self.conv_tol
-            self.xtol_abs = self.conv_tol
-        else:
-            self.conv_tol = min(
-                self.ftol_rel, self.ftol_abs, self.xtol_rel, self.xtol_abs
-            )
+            self.__dict__.update(dict.fromkeys(tolerance_names, self.conv_tol))
         return self
