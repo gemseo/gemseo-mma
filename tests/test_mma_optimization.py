@@ -18,14 +18,14 @@ from __future__ import annotations
 import pytest
 from gemseo import create_discipline
 from gemseo import create_scenario
-from gemseo.algos.design_space import DesignSpace
-from gemseo.algos.optimization_result import OptimizationResult
+from gemseo.optimization.result import OptimizationResult
+from gemseo.space import DesignSpace
 from numpy import array
 from numpy import ones
 
 from gemseo_mma.opt.core.mma_optimizer import MMAOptimizer
 from gemseo_mma.opt.mma import MMASvanberg
-from gemseo_mma.opt.mma_settings import MMASvanberg_Settings
+from gemseo_mma.opt.mma_settings import MMA_Settings
 
 
 @pytest.fixture(params=[0.0, 0.25, 0.1, 1.0])
@@ -179,15 +179,15 @@ parametrized_algo_ineq = pytest.mark.parametrize("algo_ineq", ["MMA"])
 def test_execution_with_scenario(analytical_test_2d_ineq, options, algo_ineq):
     """Test for optimization scenario execution using MMA solver."""
     opt = options.copy()
-    analytical_test_2d_ineq.execute(MMASvanberg_Settings(**opt))
-    problem = analytical_test_2d_ineq.formulation.optimization_problem
+    analytical_test_2d_ineq.execute(MMA_Settings(**opt))
+    problem = analytical_test_2d_ineq.formulation.problem
     assert pytest.approx(problem.solution.x_opt, abs=1e-2) == array([0.5, 0.5])
 
 
 @parametrized_options
 def test_direct_execution(analytical_test_2d_ineq, options):
     """Test for optimization problem execution using MMA solver."""
-    problem = analytical_test_2d_ineq.formulation.optimization_problem
+    problem = analytical_test_2d_ineq.formulation.problem
     optimizer = MMAOptimizer(problem)
     optimizer.optimize(**options)
     for key in options:
@@ -202,5 +202,35 @@ def test_direct_execution(analytical_test_2d_ineq, options):
 def test_get_optimum_from_database(analytical_test_2d_ineq):
     """Test for get_optimum_from_database call before opt problem resolution."""
     lib = MMASvanberg("MMA")
-    lib._problem = analytical_test_2d_ineq.formulation.optimization_problem
+    lib._problem = analytical_test_2d_ineq.formulation.problem
     assert isinstance(lib._get_result(lib._problem, None, None), OptimizationResult)
+
+
+def test_settings_target_class_name():
+    """Check that the settings target the MMA algorithm."""
+    assert MMA_Settings().target_class_name == "MMA"
+
+
+def test_settings_tolerances_after_assignment():
+    """Check that an assignment keeps the tolerances when conv_tol is not set."""
+    settings = MMA_Settings(ftol_rel=1e-3)
+    settings.xtol_rel = 1e-4
+    assert settings.conv_tol is None
+    assert settings.ftol_rel == 1e-3
+    assert settings.xtol_rel == 1e-4
+
+
+def test_settings_tolerances_after_model_dump():
+    """Check that a round trip through model_dump keeps the tolerances."""
+    settings = MMA_Settings(ftol_rel=1e-3, xtol_rel=1e-4)
+    settings = MMA_Settings(**settings.model_dump())
+    assert settings.conv_tol is None
+    assert settings.ftol_rel == 1e-3
+    assert settings.xtol_rel == 1e-4
+
+
+def test_settings_conv_tol():
+    """Check that conv_tol sets the four tolerances."""
+    settings = MMA_Settings(conv_tol=1e-5)
+    assert settings.ftol_rel == settings.ftol_abs == 1e-5
+    assert settings.xtol_rel == settings.xtol_abs == 1e-5

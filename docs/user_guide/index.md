@@ -8,12 +8,19 @@ Commons, PO Box 1866, Mountain View, CA 94042, USA.
 -->
 # User guide
 
-Like any other gemseo wrapped solver, MMA solver can be called setting
-the algo option to `"MMA"`. This algorithm can be used for single
-objective continuous optimization problem with non-linear inequality
-constraints.
+Like any other GEMSEO wrapped solver, the MMA solver is called
+by passing its settings model `MMA_Settings` to the scenario:
 
-Advanced options:
+```python
+from gemseo_mma.opt.mma_settings import MMA_Settings
+
+scenario.execute(MMA_Settings(max_iter=50, tol=1e-3))
+```
+
+This algorithm can be used for single objective continuous optimization problem
+with non-linear inequality constraints.
+
+Advanced settings, given as fields of `MMA_Settings`:
 
 - `tol`: The KKT residual norm tolerance. This is not the one
     implemented in GEMSEO as it uses the local functions to be computed.
