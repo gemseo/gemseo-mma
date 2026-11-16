@@ -37,6 +37,9 @@ and this project adheres to
 - GEMSEO 7 is required.
 - The `MMASvanberg_Settings` class was renamed to `MMA_Settings`,
   as GEMSEO 7 derives the algorithm name from the settings class name.
+- `MMA_Settings.conv_tol` is no longer set to the smallest of
+  `ftol_rel`, `ftol_abs`, `xtol_rel` and `xtol_abs` when it is not given;
+  it stays `None`.
 
 ### Removed
 
