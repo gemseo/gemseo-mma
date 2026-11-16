@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://gemseo.gitlab.io/gemseo-mma/latest/reference/gemseo_mma/opt/core/mma/">
+        <link rel="canonical" href="https://gemseo.gitlab.io/dev/gemseo-mma/latest/reference/gemseo_mma/opt/core/mma/">
       
       
         <link rel="prev" href="../">
@@ -20,8 +20,8 @@
         
       
       
-      <link rel="icon" href="../../../../../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <link rel="icon" href="../../../../../images/monogram.png">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.7">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -57,13 +57,13 @@
     
       <link rel="stylesheet" href="../../../../../assets/_mkdocstrings.css">
     
-      <link rel="stylesheet" href="../../../../../sg_gallery-binder.css">
+      <link rel="stylesheet" href="../../../../../sg_gallery-dataframe.css">
     
-      <link rel="stylesheet" href="../../../../../sg_gallery.css">
+      <link rel="stylesheet" href="../../../../../sg_gallery-binder.css">
     
       <link rel="stylesheet" href="../../../../../sg_gallery-rendered-html.css">
     
-      <link rel="stylesheet" href="../../../../../sg_gallery-dataframe.css">
+      <link rel="stylesheet" href="../../../../../sg_gallery.css">
     
     <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -861,12 +861,12 @@
   <a href="#gemseo_mma.opt.core.mma-functions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Functions
+        Functions:
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Functions">
+    <nav class="md-nav" aria-label="Functions:">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1001,12 +1001,12 @@
   <a href="#gemseo_mma.opt.core.mma-functions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Functions
+        Functions:
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Functions">
+    <nav class="md-nav" aria-label="Functions:">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1103,7 +1103,7 @@ This is the python version of the code written by Arjen Deetman.</p>
 
 
 
-<h3 id="gemseo_mma.opt.core.mma-functions">Functions<a href="#gemseo_mma.opt.core.mma-functions" class="headerlink" title="Permanent link">&para;</a></h3>
+<h3 id="gemseo_mma.opt.core.mma-functions">Functions:<a href="#gemseo_mma.opt.core.mma-functions" class="headerlink" title="Permanent link">&para;</a></h3>
 
 <div class="doc doc-object doc-function">
 
@@ -1114,27 +1114,27 @@ This is the python version of the code written by Arjen Deetman.</p>
 
 <a href="#gemseo_mma.opt.core.mma.compute_kkt_residual_on_local_approximation" class="headerlink" title="Permanent link">&para;</a></h4>
 <div class="doc-signature highlight"><pre><span></span><code><span class="nf">compute_kkt_residual_on_local_approximation</span><span class="p">(</span>
-    <span class="n">m</span><span class="p">:</span> <span class="n"><span title="int">int</span></span><span class="p">,</span>
-    <span class="n">n</span><span class="p">:</span> <span class="n"><span title="int">int</span></span><span class="p">,</span>
-    <span class="n">x</span><span class="p">:</span> <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span>
-    <span class="n">y</span><span class="p">:</span> <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span>
-    <span class="n">z</span><span class="p">:</span> <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span>
-    <span class="n">lam</span><span class="p">:</span> <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span>
-    <span class="n">xsi</span><span class="p">:</span> <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span>
-    <span class="n">eta</span><span class="p">:</span> <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span>
-    <span class="n">mu</span><span class="p">:</span> <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span>
-    <span class="n">zet</span><span class="p">:</span> <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span>
-    <span class="n">s</span><span class="p">:</span> <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span>
-    <span class="n">xmin</span><span class="p">:</span> <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span>
-    <span class="n">xmax</span><span class="p">:</span> <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span>
-    <span class="n">df0dx</span><span class="p">:</span> <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span>
-    <span class="n">fval</span><span class="p">:</span> <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span>
-    <span class="n">dfdx</span><span class="p">:</span> <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span>
-    <span class="n">a0</span><span class="p">:</span> <span class="n"><span title="float">float</span></span><span class="p">,</span>
-    <span class="n">a</span><span class="p">:</span> <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span>
-    <span class="n">c</span><span class="p">:</span> <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span>
-    <span class="n">d</span><span class="p">:</span> <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="tuple">tuple</span></span><span class="p">[</span><span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span> <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span> <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">]</span>
+    <span class="n">m</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/functions.html#int">int</a></span><span class="p">,</span>
+    <span class="n">n</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/functions.html#int">int</a></span><span class="p">,</span>
+    <span class="n">x</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span>
+    <span class="n">y</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span>
+    <span class="n">z</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span>
+    <span class="n">lam</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span>
+    <span class="n">xsi</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span>
+    <span class="n">eta</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span>
+    <span class="n">mu</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span>
+    <span class="n">zet</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span>
+    <span class="n">s</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span>
+    <span class="n">xmin</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span>
+    <span class="n">xmax</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span>
+    <span class="n">df0dx</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span>
+    <span class="n">fval</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span>
+    <span class="n">dfdx</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span>
+    <span class="n">a0</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/functions.html#float">float</a></span><span class="p">,</span>
+    <span class="n">a</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span>
+    <span class="n">c</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span>
+    <span class="n">d</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple">tuple</a></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">]</span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
@@ -1152,7 +1152,7 @@ subject to  f_i(x) - a_i*z - y_i &lt;= 0,   i = 1,...,m
     <ul>
         <li class="doc-section-item field-body">
             <b><code>m</code></b>
-              (<code><span title="int">int</span></code>)
+              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/functions.html#int">int</a></code>)
           –
           <div class="doc-md-description">
             <p>The number of general constraints.</p>
@@ -1160,7 +1160,7 @@ subject to  f_i(x) - a_i*z - y_i &lt;= 0,   i = 1,...,m
         </li>
         <li class="doc-section-item field-body">
             <b><code>n</code></b>
-              (<code><span title="int">int</span></code>)
+              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/functions.html#int">int</a></code>)
           –
           <div class="doc-md-description">
             <p>The number of variables x_j.</p>
@@ -1168,7 +1168,7 @@ subject to  f_i(x) - a_i*z - y_i &lt;= 0,   i = 1,...,m
         </li>
         <li class="doc-section-item field-body">
             <b><code>x</code></b>
-              (<code><span title="numpy.ndarray">ndarray</span></code>)
+              (<code><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></code>)
           –
           <div class="doc-md-description">
             <p>The current values of the n variables x_j.</p>
@@ -1176,7 +1176,7 @@ subject to  f_i(x) - a_i*z - y_i &lt;= 0,   i = 1,...,m
         </li>
         <li class="doc-section-item field-body">
             <b><code>y</code></b>
-              (<code><span title="numpy.ndarray">ndarray</span></code>)
+              (<code><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></code>)
           –
           <div class="doc-md-description">
             <p>The current values of the m variables y_i.</p>
@@ -1184,7 +1184,7 @@ subject to  f_i(x) - a_i*z - y_i &lt;= 0,   i = 1,...,m
         </li>
         <li class="doc-section-item field-body">
             <b><code>z</code></b>
-              (<code><span title="numpy.ndarray">ndarray</span></code>)
+              (<code><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></code>)
           –
           <div class="doc-md-description">
             <p>The current value of the single variable z.</p>
@@ -1192,7 +1192,7 @@ subject to  f_i(x) - a_i*z - y_i &lt;= 0,   i = 1,...,m
         </li>
         <li class="doc-section-item field-body">
             <b><code>lam</code></b>
-              (<code><span title="numpy.ndarray">ndarray</span></code>)
+              (<code><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></code>)
           –
           <div class="doc-md-description">
             <p>The Lagrange multipliers for the m general constraints.</p>
@@ -1200,7 +1200,7 @@ subject to  f_i(x) - a_i*z - y_i &lt;= 0,   i = 1,...,m
         </li>
         <li class="doc-section-item field-body">
             <b><code>xsi</code></b>
-              (<code><span title="numpy.ndarray">ndarray</span></code>)
+              (<code><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></code>)
           –
           <div class="doc-md-description">
             <p>The Lagrange multipliers for the n constraints xmin_j - x_j &lt;= 0.</p>
@@ -1208,7 +1208,7 @@ subject to  f_i(x) - a_i*z - y_i &lt;= 0,   i = 1,...,m
         </li>
         <li class="doc-section-item field-body">
             <b><code>eta</code></b>
-              (<code><span title="numpy.ndarray">ndarray</span></code>)
+              (<code><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></code>)
           –
           <div class="doc-md-description">
             <p>The Lagrange multipliers for the n constraints x_j - xmax_j &lt;= 0.</p>
@@ -1216,7 +1216,7 @@ subject to  f_i(x) - a_i*z - y_i &lt;= 0,   i = 1,...,m
         </li>
         <li class="doc-section-item field-body">
             <b><code>mu</code></b>
-              (<code><span title="numpy.ndarray">ndarray</span></code>)
+              (<code><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></code>)
           –
           <div class="doc-md-description">
             <p>The Lagrange multipliers for the m constraints -y_i &lt;= 0.</p>
@@ -1224,7 +1224,7 @@ subject to  f_i(x) - a_i*z - y_i &lt;= 0,   i = 1,...,m
         </li>
         <li class="doc-section-item field-body">
             <b><code>zet</code></b>
-              (<code><span title="numpy.ndarray">ndarray</span></code>)
+              (<code><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></code>)
           –
           <div class="doc-md-description">
             <p>The Lagrange multiplier for the single constraint -z &lt;= 0.</p>
@@ -1232,7 +1232,7 @@ subject to  f_i(x) - a_i*z - y_i &lt;= 0,   i = 1,...,m
         </li>
         <li class="doc-section-item field-body">
             <b><code>s</code></b>
-              (<code><span title="numpy.ndarray">ndarray</span></code>)
+              (<code><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></code>)
           –
           <div class="doc-md-description">
             <p>The Slack variables for the m general constraints.</p>
@@ -1240,7 +1240,7 @@ subject to  f_i(x) - a_i*z - y_i &lt;= 0,   i = 1,...,m
         </li>
         <li class="doc-section-item field-body">
             <b><code>xmin</code></b>
-              (<code><span title="numpy.ndarray">ndarray</span></code>)
+              (<code><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></code>)
           –
           <div class="doc-md-description">
             <p>The Lower bounds for the variables x_j.</p>
@@ -1248,7 +1248,7 @@ subject to  f_i(x) - a_i*z - y_i &lt;= 0,   i = 1,...,m
         </li>
         <li class="doc-section-item field-body">
             <b><code>xmax</code></b>
-              (<code><span title="numpy.ndarray">ndarray</span></code>)
+              (<code><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></code>)
           –
           <div class="doc-md-description">
             <p>The Upper bounds for the variables x_j.</p>
@@ -1256,7 +1256,7 @@ subject to  f_i(x) - a_i*z - y_i &lt;= 0,   i = 1,...,m
         </li>
         <li class="doc-section-item field-body">
             <b><code>df0dx</code></b>
-              (<code><span title="numpy.ndarray">ndarray</span></code>)
+              (<code><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></code>)
           –
           <div class="doc-md-description">
             <p>The vector with the derivatives of the objective function f_0 with
@@ -1265,7 +1265,7 @@ respect to the variables x_j, calculated at x.</p>
         </li>
         <li class="doc-section-item field-body">
             <b><code>fval</code></b>
-              (<code><span title="numpy.ndarray">ndarray</span></code>)
+              (<code><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></code>)
           –
           <div class="doc-md-description">
             <p>The vector with the values of the constraint functions f_i, calculated</p>
@@ -1273,7 +1273,7 @@ respect to the variables x_j, calculated at x.</p>
         </li>
         <li class="doc-section-item field-body">
             <b><code>dfdx</code></b>
-              (<code><span title="numpy.ndarray">ndarray</span></code>)
+              (<code><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></code>)
           –
           <div class="doc-md-description">
             <p>The (m x n)-matrix with the derivatives of the constraint functions f_i
@@ -1283,7 +1283,7 @@ dfdx(i,j) = the derivative of f_i with respect to x_j.</p>
         </li>
         <li class="doc-section-item field-body">
             <b><code>a0</code></b>
-              (<code><span title="float">float</span></code>)
+              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/functions.html#float">float</a></code>)
           –
           <div class="doc-md-description">
             <p>The constants a_0 in the term a_0*z.</p>
@@ -1291,7 +1291,7 @@ dfdx(i,j) = the derivative of f_i with respect to x_j.</p>
         </li>
         <li class="doc-section-item field-body">
             <b><code>a</code></b>
-              (<code><span title="numpy.ndarray">ndarray</span></code>)
+              (<code><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></code>)
           –
           <div class="doc-md-description">
             <p>The vector with the constants a_i in the terms a_i*z.</p>
@@ -1299,7 +1299,7 @@ dfdx(i,j) = the derivative of f_i with respect to x_j.</p>
         </li>
         <li class="doc-section-item field-body">
             <b><code>c</code></b>
-              (<code><span title="numpy.ndarray">ndarray</span></code>)
+              (<code><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></code>)
           –
           <div class="doc-md-description">
             <p>The vector with the constants c_i in the terms c_i*y_i.</p>
@@ -1307,7 +1307,7 @@ dfdx(i,j) = the derivative of f_i with respect to x_j.</p>
         </li>
         <li class="doc-section-item field-body">
             <b><code>d</code></b>
-              (<code><span title="numpy.ndarray">ndarray</span></code>)
+              (<code><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></code>)
           –
           <div class="doc-md-description">
             <p>The vector with the constants d_i in the terms 0.5<em>d_i</em>(y_i)^2.</p>
@@ -1319,7 +1319,7 @@ dfdx(i,j) = the derivative of f_i with respect to x_j.</p>
 <p><span class="doc-section-title">Returns:</span></p>
     <ul>
         <li class="doc-section-item field-body">
-              <code><span title="tuple">tuple</span>[<span title="numpy.ndarray">ndarray</span>, <span title="numpy.ndarray">ndarray</span>, <span title="numpy.ndarray">ndarray</span>]</code>
+              <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple">tuple</a>[<a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a>, <a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a>, <a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a>]</code>
           –
           <div class="doc-md-description">
             <p>The vector residual, its norm and its maximum.</p>
@@ -1427,7 +1427,7 @@ dfdx(i,j) = the derivative of f_i with respect to x_j.</p>
     <span class="n">c</span><span class="p">:</span> <span class="n">ndarray</span><span class="p">,</span>
     <span class="n">d</span><span class="p">:</span> <span class="n">ndarray</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">ndarray</span><span class="p">,</span> <span class="n">ndarray</span><span class="p">]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;KKT residual computation.</span>
+<span class="w">    </span><span class="sd">"""KKT residual computation.</span>
 
 <span class="sd">    The left hand sides of the KKT conditions for the following nonlinear programming</span>
 <span class="sd">    problem are calculated.</span>
@@ -1465,7 +1465,7 @@ dfdx(i,j) = the derivative of f_i with respect to x_j.</p>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        The vector residual, its norm and its maximum.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">rex</span> <span class="o">=</span> <span class="n">df0dx</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">dfdx</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">lam</span><span class="p">)</span> <span class="o">-</span> <span class="n">xsi</span> <span class="o">+</span> <span class="n">eta</span>
     <span class="n">rey</span> <span class="o">=</span> <span class="n">c</span> <span class="o">+</span> <span class="n">d</span> <span class="o">*</span> <span class="n">y</span> <span class="o">-</span> <span class="n">mu</span> <span class="o">-</span> <span class="n">lam</span>
     <span class="n">rez</span> <span class="o">=</span> <span class="n">a0</span> <span class="o">-</span> <span class="n">zet</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">lam</span><span class="p">)</span>
@@ -1496,42 +1496,42 @@ dfdx(i,j) = the derivative of f_i with respect to x_j.</p>
 
 <a href="#gemseo_mma.opt.core.mma.solve_mma_local_approximation_problem" class="headerlink" title="Permanent link">&para;</a></h4>
 <div class="doc-signature highlight"><pre><span></span><code><span class="nf">solve_mma_local_approximation_problem</span><span class="p">(</span>
-    <span class="n">m</span><span class="p">:</span> <span class="n"><span title="int">int</span></span><span class="p">,</span>
-    <span class="n">n</span><span class="p">:</span> <span class="n"><span title="int">int</span></span><span class="p">,</span>
-    <span class="n">n_iterations</span><span class="p">:</span> <span class="n"><span title="int">int</span></span><span class="p">,</span>
-    <span class="n">xval</span><span class="p">:</span> <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span>
-    <span class="n">xmin</span><span class="p">:</span> <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span>
-    <span class="n">xmax</span><span class="p">:</span> <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span>
-    <span class="n">xold1</span><span class="p">:</span> <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span>
-    <span class="n">xold2</span><span class="p">:</span> <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span>
-    <span class="n">f0val</span><span class="p">:</span> <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span>
-    <span class="n">df0dx</span><span class="p">:</span> <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span>
-    <span class="n">fval</span><span class="p">:</span> <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span>
-    <span class="n">dfdx</span><span class="p">:</span> <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span>
-    <span class="n">low</span><span class="p">:</span> <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span>
-    <span class="n">upp</span><span class="p">:</span> <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span>
-    <span class="n">a0</span><span class="p">:</span> <span class="n"><span title="float">float</span></span><span class="p">,</span>
-    <span class="n">a</span><span class="p">:</span> <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span>
-    <span class="n">c</span><span class="p">:</span> <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span>
-    <span class="n">d</span><span class="p">:</span> <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span>
-    <span class="n">move</span><span class="p">:</span> <span class="n"><span title="float">float</span></span><span class="p">,</span>
-    <span class="n">external_move_limit</span><span class="p">:</span> <span class="n"><span title="float">float</span></span> <span class="o">=</span> <span class="mf">10.0</span><span class="p">,</span>
-    <span class="n">internal_limit</span><span class="p">:</span> <span class="n"><span title="float">float</span></span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">,</span>
-    <span class="n">asyinit</span><span class="p">:</span> <span class="n"><span title="float">float</span></span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span>
-    <span class="n">asyincr</span><span class="p">:</span> <span class="n"><span title="float">float</span></span> <span class="o">=</span> <span class="mf">1.2</span><span class="p">,</span>
-    <span class="n">asydecr</span><span class="p">:</span> <span class="n"><span title="float">float</span></span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="tuple">tuple</span></span><span class="p">[</span>
-    <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span>
-    <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span>
-    <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span>
-    <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span>
-    <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span>
-    <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span>
-    <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span>
-    <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span>
-    <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span>
-    <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span>
-    <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span>
+    <span class="n">m</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/functions.html#int">int</a></span><span class="p">,</span>
+    <span class="n">n</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/functions.html#int">int</a></span><span class="p">,</span>
+    <span class="n">n_iterations</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/functions.html#int">int</a></span><span class="p">,</span>
+    <span class="n">xval</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span>
+    <span class="n">xmin</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span>
+    <span class="n">xmax</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span>
+    <span class="n">xold1</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span>
+    <span class="n">xold2</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span>
+    <span class="n">f0val</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span>
+    <span class="n">df0dx</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span>
+    <span class="n">fval</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span>
+    <span class="n">dfdx</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span>
+    <span class="n">low</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span>
+    <span class="n">upp</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span>
+    <span class="n">a0</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/functions.html#float">float</a></span><span class="p">,</span>
+    <span class="n">a</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span>
+    <span class="n">c</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span>
+    <span class="n">d</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span>
+    <span class="n">move</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/functions.html#float">float</a></span><span class="p">,</span>
+    <span class="n">external_move_limit</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/functions.html#float">float</a></span> <span class="o">=</span> <span class="mf">10.0</span><span class="p">,</span>
+    <span class="n">internal_limit</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/functions.html#float">float</a></span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">,</span>
+    <span class="n">asyinit</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/functions.html#float">float</a></span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span>
+    <span class="n">asyincr</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/functions.html#float">float</a></span> <span class="o">=</span> <span class="mf">1.2</span><span class="p">,</span>
+    <span class="n">asydecr</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/functions.html#float">float</a></span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple">tuple</a></span><span class="p">[</span>
+    <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span>
+    <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span>
 <span class="p">]</span>
 </code></pre></div>
 
@@ -1550,7 +1550,7 @@ subject to  f_i(x) - a_i*z - y_i &lt;= 0,  i = 1,...,m
     <ul>
         <li class="doc-section-item field-body">
             <b><code>m</code></b>
-              (<code><span title="int">int</span></code>)
+              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/functions.html#int">int</a></code>)
           –
           <div class="doc-md-description">
             <p>The number of general constraints.</p>
@@ -1558,7 +1558,7 @@ subject to  f_i(x) - a_i*z - y_i &lt;= 0,  i = 1,...,m
         </li>
         <li class="doc-section-item field-body">
             <b><code>n</code></b>
-              (<code><span title="int">int</span></code>)
+              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/functions.html#int">int</a></code>)
           –
           <div class="doc-md-description">
             <p>The number of variables x_j.</p>
@@ -1566,7 +1566,7 @@ subject to  f_i(x) - a_i*z - y_i &lt;= 0,  i = 1,...,m
         </li>
         <li class="doc-section-item field-body">
             <b><code>n_iterations</code></b>
-              (<code><span title="int">int</span></code>)
+              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/functions.html#int">int</a></code>)
           –
           <div class="doc-md-description">
             <p>The current iteration number
@@ -1575,7 +1575,7 @@ subject to  f_i(x) - a_i*z - y_i &lt;= 0,  i = 1,...,m
         </li>
         <li class="doc-section-item field-body">
             <b><code>xval</code></b>
-              (<code><span title="numpy.ndarray">ndarray</span></code>)
+              (<code><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></code>)
           –
           <div class="doc-md-description">
             <p>The column vector with the current values of the variables x_j.</p>
@@ -1583,7 +1583,7 @@ subject to  f_i(x) - a_i*z - y_i &lt;= 0,  i = 1,...,m
         </li>
         <li class="doc-section-item field-body">
             <b><code>xmin</code></b>
-              (<code><span title="numpy.ndarray">ndarray</span></code>)
+              (<code><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></code>)
           –
           <div class="doc-md-description">
             <p>The column vector with the lower bounds for the variables x_j.</p>
@@ -1591,7 +1591,7 @@ subject to  f_i(x) - a_i*z - y_i &lt;= 0,  i = 1,...,m
         </li>
         <li class="doc-section-item field-body">
             <b><code>xmax</code></b>
-              (<code><span title="numpy.ndarray">ndarray</span></code>)
+              (<code><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></code>)
           –
           <div class="doc-md-description">
             <p>The column vector with the upper bounds for the variables x_j.</p>
@@ -1599,7 +1599,7 @@ subject to  f_i(x) - a_i*z - y_i &lt;= 0,  i = 1,...,m
         </li>
         <li class="doc-section-item field-body">
             <b><code>xold1</code></b>
-              (<code><span title="numpy.ndarray">ndarray</span></code>)
+              (<code><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></code>)
           –
           <div class="doc-md-description">
             <p>The value of xval, one iteration ago (provided that n_iterations&gt;1).</p>
@@ -1607,7 +1607,7 @@ subject to  f_i(x) - a_i*z - y_i &lt;= 0,  i = 1,...,m
         </li>
         <li class="doc-section-item field-body">
             <b><code>xold2</code></b>
-              (<code><span title="numpy.ndarray">ndarray</span></code>)
+              (<code><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></code>)
           –
           <div class="doc-md-description">
             <p>The value of xval, two iterations ago (provided that n_iterations&gt;2).</p>
@@ -1615,7 +1615,7 @@ subject to  f_i(x) - a_i*z - y_i &lt;= 0,  i = 1,...,m
         </li>
         <li class="doc-section-item field-body">
             <b><code>f0val</code></b>
-              (<code><span title="numpy.ndarray">ndarray</span></code>)
+              (<code><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></code>)
           –
           <div class="doc-md-description">
             <p>The value of the objective function f_0 at xval.</p>
@@ -1623,7 +1623,7 @@ subject to  f_i(x) - a_i*z - y_i &lt;= 0,  i = 1,...,m
         </li>
         <li class="doc-section-item field-body">
             <b><code>df0dx</code></b>
-              (<code><span title="numpy.ndarray">ndarray</span></code>)
+              (<code><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></code>)
           –
           <div class="doc-md-description">
             <p>The column vector with the derivatives of the objective function
@@ -1632,7 +1632,7 @@ f_0 with respect to the variables x_j, calculated at xval.</p>
         </li>
         <li class="doc-section-item field-body">
             <b><code>fval</code></b>
-              (<code><span title="numpy.ndarray">ndarray</span></code>)
+              (<code><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></code>)
           –
           <div class="doc-md-description">
             <p>The column vector with the values of the constraint functions f_i,
@@ -1641,7 +1641,7 @@ calculated at xval.</p>
         </li>
         <li class="doc-section-item field-body">
             <b><code>dfdx</code></b>
-              (<code><span title="numpy.ndarray">ndarray</span></code>)
+              (<code><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></code>)
           –
           <div class="doc-md-description">
             <p>The (m x n)-matrix with the derivatives of the constraint functions
@@ -1650,7 +1650,7 @@ f_i with respect to the variables x_j, calculated at xval.</p>
         </li>
         <li class="doc-section-item field-body">
             <b><code>low</code></b>
-              (<code><span title="numpy.ndarray">ndarray</span></code>)
+              (<code><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></code>)
           –
           <div class="doc-md-description">
             <p>The column vector with the lower asymptotes from the previous
@@ -1659,7 +1659,7 @@ iteration (provided that n_iterations&gt;1).</p>
         </li>
         <li class="doc-section-item field-body">
             <b><code>upp</code></b>
-              (<code><span title="numpy.ndarray">ndarray</span></code>)
+              (<code><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></code>)
           –
           <div class="doc-md-description">
             <p>The column vector with the upper asymptotes from the previous
@@ -1668,7 +1668,7 @@ iteration (provided that n_iterations&gt;1).</p>
         </li>
         <li class="doc-section-item field-body">
             <b><code>a0</code></b>
-              (<code><span title="float">float</span></code>)
+              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/functions.html#float">float</a></code>)
           –
           <div class="doc-md-description">
             <p>The constants a_0 in the term a_0*z.</p>
@@ -1676,7 +1676,7 @@ iteration (provided that n_iterations&gt;1).</p>
         </li>
         <li class="doc-section-item field-body">
             <b><code>a</code></b>
-              (<code><span title="numpy.ndarray">ndarray</span></code>)
+              (<code><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></code>)
           –
           <div class="doc-md-description">
             <p>The column vector with the constants a_i in the terms a_i*z.</p>
@@ -1684,7 +1684,7 @@ iteration (provided that n_iterations&gt;1).</p>
         </li>
         <li class="doc-section-item field-body">
             <b><code>c</code></b>
-              (<code><span title="numpy.ndarray">ndarray</span></code>)
+              (<code><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></code>)
           –
           <div class="doc-md-description">
             <p>The column vector with the constants c_i in the terms c_i*y_i.</p>
@@ -1692,7 +1692,7 @@ iteration (provided that n_iterations&gt;1).</p>
         </li>
         <li class="doc-section-item field-body">
             <b><code>d</code></b>
-              (<code><span title="numpy.ndarray">ndarray</span></code>)
+              (<code><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></code>)
           –
           <div class="doc-md-description">
             <p>The column vector with the constants d_i in the terms 0.5<em>d_i</em>(y_i)^2.</p>
@@ -1700,7 +1700,7 @@ iteration (provided that n_iterations&gt;1).</p>
         </li>
         <li class="doc-section-item field-body">
             <b><code>move</code></b>
-              (<code><span title="float">float</span></code>)
+              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/functions.html#float">float</a></code>)
           –
           <div class="doc-md-description">
             <p>The maximum optimization step.</p>
@@ -1708,7 +1708,7 @@ iteration (provided that n_iterations&gt;1).</p>
         </li>
         <li class="doc-section-item field-body">
             <b><code>external_move_limit</code></b>
-              (<code><span title="float">float</span></code>, default:
+              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/functions.html#float">float</a></code>, default:
                   <code>10.0</code>
 )
           –
@@ -1719,7 +1719,7 @@ design variable value.</p>
         </li>
         <li class="doc-section-item field-body">
             <b><code>internal_limit</code></b>
-              (<code><span title="float">float</span></code>, default:
+              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/functions.html#float">float</a></code>, default:
                   <code>0.01</code>
 )
           –
@@ -1730,7 +1730,7 @@ variable value.</p>
         </li>
         <li class="doc-section-item field-body">
             <b><code>asyinit</code></b>
-              (<code><span title="float">float</span></code>, default:
+              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/functions.html#float">float</a></code>, default:
                   <code>0.5</code>
 )
           –
@@ -1740,7 +1740,7 @@ variable value.</p>
         </li>
         <li class="doc-section-item field-body">
             <b><code>asyincr</code></b>
-              (<code><span title="float">float</span></code>, default:
+              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/functions.html#float">float</a></code>, default:
                   <code>1.2</code>
 )
           –
@@ -1750,7 +1750,7 @@ variable value.</p>
         </li>
         <li class="doc-section-item field-body">
             <b><code>asydecr</code></b>
-              (<code><span title="float">float</span></code>, default:
+              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/functions.html#float">float</a></code>, default:
                   <code>0.7</code>
 )
           –
@@ -1764,7 +1764,7 @@ variable value.</p>
 <p><span class="doc-section-title">Returns:</span></p>
     <ul>
         <li class="doc-section-item field-body">
-              <code><span title="tuple">tuple</span>[<span title="numpy.ndarray">ndarray</span>, <span title="numpy.ndarray">ndarray</span>, <span title="numpy.ndarray">ndarray</span>, <span title="numpy.ndarray">ndarray</span>, <span title="numpy.ndarray">ndarray</span>, <span title="numpy.ndarray">ndarray</span>, <span title="numpy.ndarray">ndarray</span>, <span title="numpy.ndarray">ndarray</span>, <span title="numpy.ndarray">ndarray</span>, <span title="numpy.ndarray">ndarray</span>, <span title="numpy.ndarray">ndarray</span>]</code>
+              <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple">tuple</a>[<a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a>, <a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a>, <a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a>, <a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a>, <a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a>, <a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a>, <a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a>, <a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a>, <a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a>, <a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a>, <a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a>]</code>
           –
           <div class="doc-md-description">
             <p>The Column vector with the optimal values of the variables x_j
@@ -2006,7 +2006,7 @@ in the current MMA subproblem.</p>
     <span class="n">ndarray</span><span class="p">,</span>
     <span class="n">ndarray</span><span class="p">,</span>
 <span class="p">]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;MMA sub function.</span>
+<span class="w">    </span><span class="sd">"""MMA sub function.</span>
 
 <span class="sd">    This function mmasub performs one MMA-iteration, aimed at solving the nonlinear</span>
 <span class="sd">    programming problem:</span>
@@ -2077,7 +2077,7 @@ in the current MMA subproblem.</p>
 
 <span class="sd">        The Column vector with the upper asymptotes, calculated and used</span>
 <span class="sd">        in the current MMA subproblem.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">epsimin</span> <span class="o">=</span> <span class="mf">0.0000001</span>
     <span class="n">raa0</span> <span class="o">=</span> <span class="mf">0.00001</span>
     <span class="n">albefa</span> <span class="o">=</span> <span class="mf">0.1</span>
@@ -2212,12 +2212,11 @@ in the current MMA subproblem.</p>
       <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tabs", "navigation.instant", "navigation.indexes"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../../../../assets/_markdown_exec_pyodide.js"></script>
       
         <script src="../../../../../javascripts/mathjax.js"></script>
-      
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

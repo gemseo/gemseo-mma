@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://gemseo.gitlab.io/gemseo-mma/latest/reference/gemseo_mma/opt/core/mma_optimizer/">
+        <link rel="canonical" href="https://gemseo.gitlab.io/dev/gemseo-mma/latest/reference/gemseo_mma/opt/core/mma_optimizer/">
       
       
         <link rel="prev" href="../mma/">
@@ -18,8 +18,8 @@
         
       
       
-      <link rel="icon" href="../../../../../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <link rel="icon" href="../../../../../images/monogram.png">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -55,13 +55,13 @@
     
       <link rel="stylesheet" href="../../../../../assets/_mkdocstrings.css">
     
-      <link rel="stylesheet" href="../../../../../sg_gallery-binder.css">
+      <link rel="stylesheet" href="../../../../../sg_gallery-dataframe.css">
     
-      <link rel="stylesheet" href="../../../../../sg_gallery.css">
+      <link rel="stylesheet" href="../../../../../sg_gallery-binder.css">
     
       <link rel="stylesheet" href="../../../../../sg_gallery-rendered-html.css">
     
-      <link rel="stylesheet" href="../../../../../sg_gallery-dataframe.css">
+      <link rel="stylesheet" href="../../../../../sg_gallery.css">
     
     <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -911,12 +911,12 @@
   <a href="#gemseo_mma.opt.core.mma_optimizer.MMAOptimizer-functions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Functions
+        Methods:
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Functions">
+    <nav class="md-nav" aria-label="Methods:">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -960,7 +960,7 @@
   <a href="#gemseo_mma.opt.core.mma_optimizer-functions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Functions
+        Functions:
       
     </span>
   </a>
@@ -1068,12 +1068,12 @@
   <a href="#gemseo_mma.opt.core.mma_optimizer.MMAOptimizer-functions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Functions
+        Methods:
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Functions">
+    <nav class="md-nav" aria-label="Methods:">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1117,7 +1117,7 @@
   <a href="#gemseo_mma.opt.core.mma_optimizer-functions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Functions
+        Functions:
       
     </span>
   </a>
@@ -1193,7 +1193,7 @@
 
 
 <a href="#gemseo_mma.opt.core.mma_optimizer.MMAOptimizer" class="headerlink" title="Permanent link">&para;</a></h4>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">MMAOptimizer</span><span class="p">(</span><span class="n">problem</span><span class="p">:</span> <span class="n"><span title="gemseo.algos.optimization_problem.OptimizationProblem">OptimizationProblem</span></span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">MMAOptimizer</span><span class="p">(</span><span class="n">problem</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="gemseo.optimization.OptimizationProblem" href="https://gemseo.gitlab.io/dev/gemseo/develop/reference/gemseo/optimization/#gemseo.optimization.OptimizationProblem">OptimizationProblem</a></span><span class="p">)</span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
@@ -1242,7 +1242,7 @@ smaller values of the <code>max_optimization_step</code>, <code>max_asymptote_di
 <span class="normal">111</span>
 <span class="normal">112</span>
 <span class="normal">113</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">problem</span><span class="p">:</span> <span class="n">OptimizationProblem</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Constructor.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Constructor."""</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">__problem</span> <span class="o">=</span> <span class="n">problem</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">__message</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__EMPTY_STRING</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">__normalize_design_space</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__DEFAULT_NORMALIZE_DESIGN_SPACE</span>
@@ -1273,7 +1273,7 @@ smaller values of the <code>max_optimization_step</code>, <code>max_asymptote_di
 
 
 
-<h5 id="gemseo_mma.opt.core.mma_optimizer.MMAOptimizer-functions">Functions<a href="#gemseo_mma.opt.core.mma_optimizer.MMAOptimizer-functions" class="headerlink" title="Permanent link">&para;</a></h5>
+<h5 id="gemseo_mma.opt.core.mma_optimizer.MMAOptimizer-functions">Methods:<a href="#gemseo_mma.opt.core.mma_optimizer.MMAOptimizer-functions" class="headerlink" title="Permanent link">&para;</a></h5>
 
 <div class="doc doc-object doc-function">
 
@@ -1283,7 +1283,7 @@ smaller values of the <code>max_optimization_step</code>, <code>max_asymptote_di
 
 
 <a href="#gemseo_mma.opt.core.mma_optimizer.MMAOptimizer.iterate" class="headerlink" title="Permanent link">&para;</a></h6>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">iterate</span><span class="p">(</span><span class="n">x0</span><span class="p">:</span> <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="tuple">tuple</span></span><span class="p">[</span><span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">,</span> <span class="n"><span title="numpy.ndarray">ndarray</span></span><span class="p">]</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">iterate</span><span class="p">(</span><span class="n">x0</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple">tuple</a></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></span><span class="p">]</span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
@@ -1295,7 +1295,7 @@ smaller values of the <code>max_optimization_step</code>, <code>max_asymptote_di
     <ul>
         <li class="doc-section-item field-body">
             <b><code>x0</code></b>
-              (<code><span title="numpy.ndarray">ndarray</span></code>)
+              (<code><a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a></code>)
           –
           <div class="doc-md-description">
             <p>The starting guess design point.</p>
@@ -1307,7 +1307,7 @@ smaller values of the <code>max_optimization_step</code>, <code>max_asymptote_di
 <p><span class="doc-section-title">Returns:</span></p>
     <ul>
         <li class="doc-section-item field-body">
-              <code><span title="tuple">tuple</span>[<span title="numpy.ndarray">ndarray</span>, <span title="numpy.ndarray">ndarray</span>]</code>
+              <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple">tuple</a>[<a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a>, <a class="autorefs autorefs-external" title="numpy.ndarray" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray">ndarray</a>]</code>
           –
           <div class="doc-md-description">
             <p>The optimum design point and objective value.</p>
@@ -1476,14 +1476,14 @@ smaller values of the <code>max_optimization_step</code>, <code>max_asymptote_di
 <span class="normal">322</span>
 <span class="normal">323</span>
 <span class="normal">324</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">iterate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x0</span><span class="p">:</span> <span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">ndarray</span><span class="p">]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Iterate until convergence from the starting guess.</span>
+<span class="w">    </span><span class="sd">"""Iterate until convergence from the starting guess.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        x0: The starting guess design point.</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        The optimum design point and objective value.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
     <span class="n">eeen</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
     <span class="n">xval</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">eeen</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -1623,15 +1623,15 @@ smaller values of the <code>max_optimization_step</code>, <code>max_asymptote_di
         <span class="p">)</span>
 
     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__normalize_design_space</span><span class="p">:</span>
-        <span class="n">xopt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__problem</span><span class="o">.</span><span class="n">design_space</span><span class="o">.</span><span class="n">unnormalize_vect</span><span class="p">(</span><span class="n">xval</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
+        <span class="n">xopt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__problem</span><span class="o">.</span><span class="n">design_space</span><span class="o">.</span><span class="n">denormalize_vect</span><span class="p">(</span><span class="n">xval</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">xopt</span> <span class="o">=</span> <span class="n">xval</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
 
-    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;END OF MMA ALGORITHM&quot;</span><span class="p">)</span>
+    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"END OF MMA ALGORITHM"</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">kktnorm</span> <span class="o">&lt;=</span> <span class="n">kkttol</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__message</span> <span class="o">=</span> <span class="s2">&quot;KKT norm criteria met&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__message</span> <span class="o">=</span> <span class="s2">"KKT norm criteria met"</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__message</span> <span class="o">=</span> <span class="s2">&quot;change criteria met&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__message</span> <span class="o">=</span> <span class="s2">"change criteria met"</span>
     <span class="k">return</span> <span class="n">xopt</span><span class="p">,</span> <span class="n">f0val</span>
 </code></pre></div></td></tr></table></div>
             </details>
@@ -1647,7 +1647,7 @@ smaller values of the <code>max_optimization_step</code>, <code>max_asymptote_di
 
 
 <a href="#gemseo_mma.opt.core.mma_optimizer.MMAOptimizer.optimize" class="headerlink" title="Permanent link">&para;</a></h6>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">optimize</span><span class="p">(</span><span class="o">**</span><span class="n">options</span><span class="p">:</span> <span class="n"><span title="bool">bool</span></span> <span class="o">|</span> <span class="n"><span title="float">float</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="tuple">tuple</span></span><span class="p">[</span><span class="n"><span title="str">str</span></span><span class="p">,</span> <span class="n"><span title="int">int</span></span><span class="p">]</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">optimize</span><span class="p">(</span><span class="o">**</span><span class="n">options</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/functions.html#bool">bool</a></span> <span class="o">|</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/functions.html#float">float</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple">tuple</a></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/stdtypes.html#str">str</a></span><span class="p">,</span> <span class="n"><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/functions.html#int">int</a></span><span class="p">]</span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
@@ -1659,7 +1659,7 @@ smaller values of the <code>max_optimization_step</code>, <code>max_asymptote_di
     <ul>
         <li class="doc-section-item field-body">
             <b><code>**options</code></b>
-              (<code><span title="bool">bool</span> | <span title="float">float</span></code>, default:
+              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/functions.html#bool">bool</a> | <a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/functions.html#float">float</a></code>, default:
                   <code>{}</code>
 )
           –
@@ -1673,7 +1673,7 @@ smaller values of the <code>max_optimization_step</code>, <code>max_asymptote_di
 <p><span class="doc-section-title">Returns:</span></p>
     <ul>
         <li class="doc-section-item field-body">
-              <code><span title="tuple">tuple</span>[<span title="str">str</span>, <span title="int">int</span>]</code>
+              <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple">tuple</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/stdtypes.html#str">str</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/builtins/functions.html#int">int</a>]</code>
           –
           <div class="doc-md-description">
             <p>The optimization solver message and final status.</p>
@@ -1735,42 +1735,42 @@ smaller values of the <code>max_optimization_step</code>, <code>max_asymptote_di
 <span class="normal">163</span>
 <span class="normal">164</span>
 <span class="normal">165</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">optimize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Optimize the problem.</span>
+<span class="w">    </span><span class="sd">"""Optimize the problem.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        **options: The optimization problem options.</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        The optimization solver message and final status.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">__normalize_design_space</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
-        <span class="s2">&quot;normalize_design_space&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__DEFAULT_NORMALIZE_DESIGN_SPACE</span>
+        <span class="s2">"normalize_design_space"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__DEFAULT_NORMALIZE_DESIGN_SPACE</span>
     <span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">__max_iter</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;max_iter&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__DEFAULT_MAXITER</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">__tol</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;tol&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__DEFAULT_TOLERANCE</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">__xtol_abs</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;xtol_abs&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__DEFAULT_TOLERANCE</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">__xtol_rel</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;xtol_rel&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__DEFAULT_TOLERANCE</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">__ftol_rel</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ftol_rel&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__DEFAULT_TOLERANCE</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">__ftol_abs</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ftol_abs&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__DEFAULT_TOLERANCE</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">__max_iter</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"max_iter"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__DEFAULT_MAXITER</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">__tol</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"tol"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__DEFAULT_TOLERANCE</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">__xtol_abs</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"xtol_abs"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__DEFAULT_TOLERANCE</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">__xtol_rel</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"xtol_rel"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__DEFAULT_TOLERANCE</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">__ftol_rel</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"ftol_rel"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__DEFAULT_TOLERANCE</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">__ftol_abs</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"ftol_abs"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__DEFAULT_TOLERANCE</span><span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">__max_asymptote_distance</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
-        <span class="s2">&quot;max_asymptote_distance&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__DEFAULT_MAX_DISTANCE</span>
+        <span class="s2">"max_asymptote_distance"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__DEFAULT_MAX_DISTANCE</span>
     <span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">__min_asymptote_distance</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
-        <span class="s2">&quot;min_asymptote_distance&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__DEFAULT_MIN_DISTANCE</span>
+        <span class="s2">"min_asymptote_distance"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__DEFAULT_MIN_DISTANCE</span>
     <span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">__max_optimization_step</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
-        <span class="s2">&quot;max_optimization_step&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__DEFAULT_MAX_OPTIM_STEP</span>
+        <span class="s2">"max_optimization_step"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__DEFAULT_MAX_OPTIM_STEP</span>
     <span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">__initial_asymptotes_distance</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
-        <span class="s2">&quot;initial_asymptotes_distance&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__DEFAULT_ASYINIT</span>
+        <span class="s2">"initial_asymptotes_distance"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__DEFAULT_ASYINIT</span>
     <span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">__asymptotes_distance_amplification_coefficient</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
-        <span class="s2">&quot;asymptotes_distance_amplification_coefficient&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__DEFAULT_ASYINCR</span>
+        <span class="s2">"asymptotes_distance_amplification_coefficient"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__DEFAULT_ASYINCR</span>
     <span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">__asymptotes_distance_reduction_coefficient</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
-        <span class="s2">&quot;asymptotes_distance_reduction_coefficient&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__DEFAULT_ASYDECR</span>
+        <span class="s2">"asymptotes_distance_reduction_coefficient"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__DEFAULT_ASYDECR</span>
     <span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">__ineq_tolerance</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ineq_tolerance&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__DEFAULT_TOLERANCE</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">__ineq_tolerance</span> <span class="o">=</span> <span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"ineq_tolerance"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__DEFAULT_TOLERANCE</span><span class="p">)</span>
 
     <span class="c1"># initialize database</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">__normalize_design_space</span><span class="p">:</span>
@@ -1798,7 +1798,7 @@ smaller values of the <code>max_optimization_step</code>, <code>max_asymptote_di
     </div>
 
 </div>
-<h3 id="gemseo_mma.opt.core.mma_optimizer-functions">Functions<a href="#gemseo_mma.opt.core.mma_optimizer-functions" class="headerlink" title="Permanent link">&para;</a></h3>
+<h3 id="gemseo_mma.opt.core.mma_optimizer-functions">Functions:<a href="#gemseo_mma.opt.core.mma_optimizer-functions" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
 
@@ -1859,12 +1859,11 @@ smaller values of the <code>max_optimization_step</code>, <code>max_asymptote_di
       <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tabs", "navigation.instant", "navigation.indexes"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../../../../assets/_markdown_exec_pyodide.js"></script>
       
         <script src="../../../../../javascripts/mathjax.js"></script>
-      
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
