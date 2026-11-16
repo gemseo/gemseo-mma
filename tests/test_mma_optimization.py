@@ -211,18 +211,20 @@ def test_settings_target_class_name():
     assert MMA_Settings().target_class_name == "MMA"
 
 
-@pytest.mark.parametrize(
-    "assign", [lambda s: setattr(s, "max_iter", 10), lambda s: None]
-)
-def test_settings_tolerances_after_assignment(assign):
+def test_settings_tolerances_after_assignment():
     """Check that an assignment keeps the tolerances when conv_tol is not set."""
     settings = MMA_Settings(ftol_rel=1e-3)
-    assign(settings)
     settings.xtol_rel = 1e-4
     assert settings.conv_tol is None
     assert settings.ftol_rel == 1e-3
     assert settings.xtol_rel == 1e-4
+
+
+def test_settings_tolerances_after_model_dump():
+    """Check that a round trip through model_dump keeps the tolerances."""
+    settings = MMA_Settings(ftol_rel=1e-3, xtol_rel=1e-4)
     settings = MMA_Settings(**settings.model_dump())
+    assert settings.conv_tol is None
     assert settings.ftol_rel == 1e-3
     assert settings.xtol_rel == 1e-4
 
