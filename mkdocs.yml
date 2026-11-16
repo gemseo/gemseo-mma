@@ -38,7 +38,7 @@ plugins:
         paths: [src]
         inventories:
         - https://docs.python.org/3/objects.inv
-        - https://gemseo.readthedocs.io/en/stable/objects.inv
+        - https://gemseo.gitlab.io/dev/gemseo/develop/objects.inv
         - https://matplotlib.org/stable/objects.inv
         - https://numpy.org/doc/stable/objects.inv
         - https://docs.scipy.org/doc/scipy/objects.inv
